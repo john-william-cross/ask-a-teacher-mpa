@@ -1,0 +1,118 @@
+//this is for things that aren't bootstrap variables
+
+.form-control {
+   resize: none;
+}
+
+a {
+   font-weight: $font-weight-bold;
+}
+
+.no-underline:hover {
+   text-decoration: none !important;
+}
+
+.logo-text-font {
+   font-family: "Playfair Display", serif;
+}
+
+.logo-text-size {
+   @include media-breakpoint-only(xs) {
+      font-size: $font-size-base * 1.5;e
+      line-height: 0;
+   }
+   @include media-breakpoint-only(sm) {
+      font-size: $font-size-base * 1.75;
+   }
+   @include media-breakpoint-only(md) {
+      font-size: $font-size-base * 2.25;
+   }
+   @include media-breakpoint-only(lg) {
+      font-size: $font-size-base * 2.5;
+   }
+   @include media-breakpoint-only(xl) {
+      font-size: $font-size-base * 3;
+      margin-top: 20px;
+   }
+}
+
+.answer-question-link {
+   line-height: 1;
+   // margin-bottom: 2px;
+   @include media-breakpoint-only(xs) {
+      font-size: 12px;
+      margin-bottom: 5px;
+   }
+   @include media-breakpoint-only(sm) {
+      font-size: 16px;
+      margin-bottom: 6px;
+   }
+   @include media-breakpoint-only(md) {
+      font-size: 16px;
+      margin-bottom: 7px;
+   }
+   @include media-breakpoint-only(lg) {
+      margin-bottom: 8px;
+   }
+   @include media-breakpoint-only(xl) {
+      margin-bottom: 10px;
+   }
+}
+
+.submit-new-question,
+.sign-up-prompt {
+   font-weight: $font-weight-bold;
+}
+
+.answer-question-link {
+   color: $white;
+   font-weight: normal;
+}
+
+.thank-you-message {
+   color: $success;
+}
+
+.logo {
+   @include media-breakpoint-only(xs) {
+      width: 20px;
+      margin-top: -10px;
+      margin-right: -5px;
+   }
+   @include media-breakpoint-only(sm) {
+      width: 30px;
+      margin-top: -20px;
+   }
+   @include media-breakpoint-only(md) {
+      width: 43px;
+      margin-top: -30px;
+   }
+   @include media-breakpoint-only(lg) {
+      width: 45px;
+      margin-top: -37px;
+   }
+   @include media-breakpoint-only(xl) {
+      width: 55px;
+      margin-top: -44px;
+   }
+}
+
+hr {
+   height: 2px;
+   border-width: 0;
+   color: $gray-100;
+   background-color: $gray-100;
+}
+
+.header-solid {
+   background-color: $gray-900;
+
+   color: $white;
+   a {
+      color: white;
+   }
+}
+
+a:hover {
+   cursor: pointer;
+}
