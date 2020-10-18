@@ -34,8 +34,8 @@ export default function Questions() {
             <div className="row no-gutters">
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                   <div className="col-12">
-                     <h1 className="float-left">Top Questions</h1>
-                     <select className="col-5 form-control form-control-lg mb-5 mt-3 float-right">
+                     <h1 className="float-left top-questions">Top Questions</h1>
+                     <select className="float-right dropdown col-5 form-control form-control-lg">
                         <option value="newest">Newest</option>
                         <option value="unanswered">Unanswered</option>
                         <option value="trending">Trending</option>
@@ -44,10 +44,10 @@ export default function Questions() {
 
                      <div className="clearfix"></div>
 
-                     <div className="lead">
+                     <div className="lead mt-4">
                         <a href="question.html">
-                           What is the difference between an infrence and a
-                           predikshun?
+                           What is the difference between an inference and a
+                           prediction?
                         </a>
                      </div>
                      <p className="text-muted float-left">
