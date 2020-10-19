@@ -10,7 +10,7 @@ export default function Questions() {
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                   <div className="col-12">
                      <h1 className="float-left top-questions">Top Questions</h1>
-                     <select className="float-right dropdown col-5 form-control form-control-lg">
+                     <select className="float-right dropdown col-5 form-control pl-0  form-control-lg">
                         <option value="newest">Newest</option>
                         <option value="unanswered">Unanswered</option>
                         <option value="trending">Trending</option>
@@ -25,10 +25,12 @@ export default function Questions() {
                            prediction?
                         </a>
                      </div>
-                     <p className="text-muted float-left">
+                     <p className="text-muted asked-on-answers-num float-left">
                         Asked on June 1, 2020
                      </p>
-                     <p className="text-muted float-right">5 answers</p>
+                     <p className="text-muted asked-on-answers-num float-right">
+                        5 answers
+                     </p>
                      <div className="clearfix mb-4"></div>
 
                      <hr className="my-6" />
@@ -38,10 +40,10 @@ export default function Questions() {
                         </a>
                      </div>
 
-                     <p className="text-muted d-inline">
+                     <p className="text-muted asked-on-answers-num d-inline">
                         Asked on May 23, 2020
                      </p>
-                     <p className="text-muted d-inline float-right">
+                     <p className="text-muted asked-on-answers-num d-inline float-right">
                         2 answers
                      </p>
 
@@ -57,10 +59,12 @@ export default function Questions() {
                         </a>
                      </div>
 
-                     <p className="text-muted d-inline">
+                     <p className="text-muted asked-on-answers-num d-inline">
                         Asked on May 20, 2020
                      </p>
-                     <p className="text-muted d-inline float-right">1 answer</p>
+                     <p className="text-muted asked-on-answers-num d-inline float-right">
+                        1 answer
+                     </p>
 
                      <div className="clearfix mb-4"></div>
 
