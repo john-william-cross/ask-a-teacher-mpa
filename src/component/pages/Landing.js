@@ -8,9 +8,9 @@ export default function Landing() {
          <Header />
          <div className="container">
             <div className="row">
-               <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
+               <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-xs-5 mt-9">
                   <p
-                     className="lead logo-text-size logo-text-font"
+                     className="lead logo-text-font"
                      style={{ textAlign: "center" }}
                   >
                      Ask a teacher
