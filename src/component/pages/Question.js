@@ -25,7 +25,7 @@ export default function Question() {
                            5 answers
                         </p>
                         <div className="clearfix mb-4"></div>
-                        <div class="answer">
+                        <div class="answers">
                            <p className=" mb-4">
                               A prediction is an educated guess, based on
                               information you already have, about what you think

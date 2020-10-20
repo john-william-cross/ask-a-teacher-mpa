@@ -58,7 +58,7 @@ a {
       margin-bottom: 10px;
    }
 }
-.answer {
+.answers {
    @include media-breakpoint-only(xs) {
       font-size: 16px;
    }
