@@ -126,24 +126,35 @@ export default function Question() {
                         </div>
 
                         <hr className="my-6" />
-                     </div>
 
-                     <p className="lead mt-1">Your answer</p>
-                     <textarea
-                        className="form-control form-control-lg"
-                        id="answer-input"
-                        rows="10"
-                        style={{ width: "100%" }}
-                     ></textarea>
-                     <p className="text-muted float-right">
-                        <span
-                           className="text-danger"
-                           id="answer-input-char-count"
+                        <p className="lead mt-1">Your answer</p>
+                        <textarea
+                           className="form-control form-control-lg"
+                           id="answer-input"
+                           rows="10"
+                           style={{ width: "100%" }}
+                        ></textarea>
+
+                        <p class="float-right lead mt-0 text-muted">
+                           <span
+                              class="text-danger"
+                              id="answer-input-char-count"
+                           >
+                              0
+                           </span>
+                           /2000
+                        </p>
+
+                        <button
+                           className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
+                           id="submit-answer"
+                           // disabled
+                           type="submit"
+                           value="Submit answer"
                         >
-                           0
-                        </span>
-                        /2000
-                     </p>
+                           Submit answer
+                        </button>
+                     </div>
 
                      {/* 
                      <p className="text-muted float-right">
@@ -155,14 +166,6 @@ export default function Question() {
                         </span>
                         /500
                      </p> */}
-
-                     <input
-                        className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
-                        id="submit-answer"
-                        // disabled
-                        type="submit"
-                        value="Submit answer"
-                     />
                   </div>
                </div>
             </div>
