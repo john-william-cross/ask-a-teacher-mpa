@@ -12,21 +12,21 @@ export default function Question() {
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                   <div className="row no-gutters">
                      <div className="col-12">
-                        <div className="question lead">
+                        <div className="lead">
                            <Link to="question">
                               What is the difference between an inference and a
                               prediction?
                            </Link>
                         </div>
-                        <div className="question">
-                           <p className="text-muted d-inline">
-                              Asked on June 1, 2020
-                           </p>
-                           <p className="text-muted mb-6 d-inline float-right">
-                              5 answers
-                           </p>
-                           <div className="clearfix"></div>
-                           <p className="mb-4">
+                        <p className="text-muted asked-on-answers-num float-left">
+                           Asked on June 1, 2020
+                        </p>
+                        <p className="text-muted asked-on-answers-num float-right">
+                           5 answers
+                        </p>
+                        <div className="clearfix mb-4"></div>
+                        <div class="answer">
+                           <p className=" mb-4">
                               A prediction is an educated guess, based on
                               information you already have, about what you think
                               will happen in the future. An inference is a
@@ -65,7 +65,7 @@ export default function Question() {
                               bike.
                            </p>
 
-                           <p className="text-muted mb-8">
+                           <p className="text-muted mb-4">
                               This question was answered by a teacher in
                               Minnesota on September 4, 2020.
                            </p>
@@ -82,7 +82,7 @@ export default function Question() {
                               already happened.
                            </p>
 
-                           <p className="text-muted mb-8">
+                           <p className="text-muted mb-4">
                               This question was answered by a teacher in New
                               York on May 2, 1984.
                            </p>
@@ -93,7 +93,7 @@ export default function Question() {
                               thing
                            </p>
 
-                           <p className="text-muted mb-8">
+                           <p className="text-muted mb-4">
                               This question was answered by a teacher in
                               Minnesota on January 1, 2000.
                            </p>
@@ -105,7 +105,7 @@ export default function Question() {
                               based on evidence.
                            </p>
 
-                           <p className="text-muted mb-8">
+                           <p className="text-muted mb-4">
                               This question was answered by a teacher in Nevada
                               on December 25, 1901.
                            </p>
@@ -119,41 +119,50 @@ export default function Question() {
                               is a great game that teaches the difference!
                            </div>
 
-                           <p className="text-muted">
+                           <p className="text-muted mb-4">
                               This question was answered by a teacher in Nevada
                               on October 13, 2019.
                            </p>
-
-                           <hr className="my-6" />
                         </div>
 
-                        <div className="answer-submitted">
-                           <h1 className="lead">Your answer</h1>
-                           <textarea
-                              className="form-control form-control-lg mt-5"
-                              id="answer-input"
-                              rows="10"
-                              style={{ width: "100%" }}
-                           ></textarea>
-                           <p className="float-right text-muted">
-                              <span
-                                 className="text-danger"
-                                 id="answer-input-char-count"
-                              >
-                                 0
-                              </span>
-                              /2000
-                           </p>
-
-                           <input
-                              className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
-                              id="submit-answer"
-                              disabled
-                              type="submit"
-                              value="Submit answer"
-                           />
-                        </div>
+                        <hr className="my-6" />
                      </div>
+
+                     <p className="lead mt-1">Your answer</p>
+                     <textarea
+                        className="form-control form-control-lg"
+                        id="answer-input"
+                        rows="10"
+                        style={{ width: "100%" }}
+                     ></textarea>
+                     <p className="text-muted float-right">
+                        <span
+                           className="text-danger"
+                           id="answer-input-char-count"
+                        >
+                           0
+                        </span>
+                        /2000
+                     </p>
+
+                     {/* 
+                     <p className="text-muted float-right">
+                        <span
+                           className="text-danger"
+                           id="question-input-char-count"
+                        >
+                           0
+                        </span>
+                        /500
+                     </p> */}
+
+                     <input
+                        className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
+                        id="submit-answer"
+                        // disabled
+                        type="submit"
+                        value="Submit answer"
+                     />
                   </div>
                </div>
             </div>
