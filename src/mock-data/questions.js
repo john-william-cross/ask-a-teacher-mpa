@@ -26,13 +26,13 @@ const questions = [
    },
    {
       questionId: "30a95c2b-ed3c-46a4-b32f-7bcb5aef7143", 
-      text: "I don’t know anything about common core my child is having trouble with math and I don’t know how he’s supposed to do it he says I’m not showing him the right way please help",
+      text: "What is the area model of multiplication?",
       email: "jay@hotmail.com",
       createdAt: 1603232099,
       answers: [
          {
             answerId:"c69631b0-bf11-41c2-86b9-5e3c0c8ab182", 
-            text: "You may need to submit a new question in which you say what grade your child is in, because different methods for solving different types of problems are introduced at different grades.",
+            text: "You may need to submit a new question in which you say what grade your child is in, because different methods for solving multiplication problems are introduced at different grades.",
             answeredAt: 1603232061,
             userId: "c653e41b-c585-4d27-a439-4f9811eade44",
             userHomeState: "Iowa",
