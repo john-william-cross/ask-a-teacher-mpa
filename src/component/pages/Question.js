@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
+import questions from "../../mock-data/questions";
+const question = questions.answers[text[0]];
 
 export default function Question() {
    return (
@@ -25,8 +27,9 @@ export default function Question() {
                            5 answers
                         </p>
                         <div className="clearfix mb-4"></div>
-                        <div class="answers">
-                           <p className=" mb-4">
+                        <div className="answers">
+                           {question}
+                           {/* <p className=" mb-4">
                               A prediction is an educated guess, based on
                               information you already have, about what you think
                               will happen in the future. An inference is a
@@ -122,7 +125,7 @@ export default function Question() {
                            <p className="text-muted mb-4">
                               This question was answered by a teacher in Nevada
                               on October 13, 2019.
-                           </p>
+                           </p> */}
                         </div>
 
                         <hr className="my-6" />
@@ -135,9 +138,9 @@ export default function Question() {
                            style={{ width: "100%" }}
                         ></textarea>
 
-                        <p class="float-right lead mt-0 text-muted">
+                        <p className="float-right lead mt-0 text-muted">
                            <span
-                              class="text-danger"
+                              className="text-danger"
                               id="answer-input-char-count"
                            >
                               0
