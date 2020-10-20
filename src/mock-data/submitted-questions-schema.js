@@ -1,0 +1,5 @@
+const submittedQuestionsSchema = [
+   {
+      question: String,
+   },
+];
