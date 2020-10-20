@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
 
 export default function Questions() {
    return (
@@ -20,10 +21,10 @@ export default function Questions() {
                      <div className="clearfix"></div>
 
                      <div className="lead mt-4">
-                        <a href="question.html">
+                        <Link to="question">
                            What is the difference between an inference and a
                            prediction?
-                        </a>
+                        </Link>
                      </div>
                      <p className="text-muted asked-on-answers-num float-left">
                         Asked on June 1, 2020
@@ -35,9 +36,9 @@ export default function Questions() {
 
                      <hr className="my-6" />
                      <div className="lead">
-                        <a href="/question.html">
+                        <Link to="/question">
                            What is the area model of multiplication?
-                        </a>
+                        </Link>
                      </div>
 
                      <p className="text-muted asked-on-answers-num d-inline">
@@ -51,12 +52,12 @@ export default function Questions() {
 
                      <hr className="my-6" />
                      <div className="lead">
-                        <a href="/question.html">
+                        <Link to="/question">
                            I don’t know anything about common core my child is
                            having trouble with math and I don’t know how he’s
                            supposed to do it he says I’m not showing him the
                            right way please help
-                        </a>
+                        </Link>
                      </div>
 
                      <p className="text-muted asked-on-answers-num d-inline">

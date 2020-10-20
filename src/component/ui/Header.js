@@ -1,27 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import appLogo from "../../icons/white-logo.svg";
 
 export default function Header() {
    return (
       <>
-         <div class="header-solid fixed-top">
-            <div class="container mb-4 mt-4 mt-sm-4 mt-md-3 mt-lg-2">
-               <div class="row">
-                  <div class="col-8 col-md-8 col-sm-9">
-                     <a class="no-underline" href="index.html">
-                        <img class="ml-xs-n8 ml-sm-3 logo" src={appLogo} />
-                        <h1 class="logo-text-font d-inline logo-text-size ml-2 mr-5">
+         <div className="header-solid fixed-top">
+            <div className="container mb-4 mt-4 mt-sm-4 mt-md-3 mt-lg-2">
+               <div className="row">
+                  <div className="col-8 col-md-8 col-sm-9">
+                     <Link to="index" className="no-underline">
+                        <img
+                           className="ml-xs-n8 ml-sm-3 logo"
+                           alt="Ask a Teacher Logo"
+                           src={appLogo}
+                        />
+                        <h1 className="logo-text-font d-inline logo-text-size ml-2 mr-5">
                            Ask a Teacher
                         </h1>
-                     </a>
+                     </Link>
                   </div>
-                  <div class="col-4 col-sm-3 col-md-4 d-flex">
-                     <a
-                        href="sign-in-sign-up.html"
-                        class="align-self-end offset-4 no-underline text-right answer-question-link"
+                  <div className="col-4 col-sm-3 col-md-4 d-flex">
+                     <Link
+                        to="sign-in-sign-up"
+                        className="align-self-end offset-4 no-underline text-right answer-question-link"
                      >
                         Answer a question
-                     </a>
+                     </Link>
                   </div>
                </div>
             </div>

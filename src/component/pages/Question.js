@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
 
 export default function Question() {
    return (
@@ -12,10 +13,10 @@ export default function Question() {
                   <div className="row no-gutters">
                      <div className="col-12">
                         <div className="question lead">
-                           <a href="question.html">
+                           <Link to="question">
                               What is the difference between an inference and a
                               prediction?
-                           </a>
+                           </Link>
                         </div>
                         <div className="question">
                            <p className="text-muted d-inline">
@@ -112,8 +113,10 @@ export default function Question() {
                            <hr className="my-6" />
 
                            <div className="mb-3">
-                              <a href="www.somelink.com">Here</a> is a great
-                              game that teaches the difference!
+                              <Link to="http://wpsu.org/games/wpsuGames_DetectivesNotebook/index.html">
+                                 Here
+                              </Link>{" "}
+                              is a great game that teaches the difference!
                            </div>
 
                            <p className="text-muted">

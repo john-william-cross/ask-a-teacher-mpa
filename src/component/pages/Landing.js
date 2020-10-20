@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
    return (
@@ -20,29 +21,29 @@ export default function Landing() {
                      className="form-control mt-7"
                      id="question-input-home-page"
                      rows="2"
-                     autofocus
+                     autoFocus
                      style={{ width: "100%" }}
                   ></textarea>
 
                   <div className="submit-new-question text-center d-none">
                      <p className="mt-3">Don't see what you're looking for?</p>
 
-                     <a
+                     <Link
+                        to="submit-question"
                         className="submit-new-question d-none mt-1"
-                        href="submit-question.html"
                      >
                         Submit a new question
-                     </a>
+                     </Link>
                   </div>
                </div>
             </div>
             <div className="row d-none home-page-question">
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-6">
                   <p className="lead">
-                     <a href="question.html">
-                        What is the difference between an infrence and a
-                        predikshun?
-                     </a>
+                     <Link to="question">
+                        What is the difference between an inference and a
+                        prediction?
+                     </Link>
                   </p>
 
                   <p className="text-muted float-left">Asked on June 1, 2020</p>
@@ -52,9 +53,9 @@ export default function Landing() {
                   <hr className="my-6" />
 
                   <p className="lead">
-                     <a href="question.html">
+                     <Link to="question">
                         What is the area model of multiplication?
-                     </a>
+                     </Link>
                   </p>
 
                   <p className="text-muted float-left">Asked on May 23, 2020</p>
@@ -63,12 +64,12 @@ export default function Landing() {
                   <hr className="my-6" />
 
                   <p className="lead">
-                     <a href="question.html">
+                     <Link to="question">
                         I don’t know anything about common core my child is
                         having trouble with math and I don’t know how he’s
                         supposed to do it he says I’m not showing him the right
                         way please help
-                     </a>
+                     </Link>
                   </p>
 
                   <p className="text-muted float-left">Asked on May 20, 2020</p>
