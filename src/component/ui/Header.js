@@ -9,7 +9,7 @@ export default function Header() {
             <div className="container mb-4 mt-4 mt-sm-4 mt-md-3 mt-lg-2">
                <div className="row">
                   <div className="col-8 col-md-8 col-sm-9">
-                     <Link to="index" className="no-underline">
+                     <Link to="/" className="no-underline">
                         <img
                            className="ml-xs-n8 ml-sm-3 logo"
                            alt="Ask a Teacher Logo"

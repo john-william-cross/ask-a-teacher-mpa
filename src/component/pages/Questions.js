@@ -74,7 +74,6 @@ export default function Questions() {
                </div>
             </div>
          </div>
-         );
       </>
    );
 }

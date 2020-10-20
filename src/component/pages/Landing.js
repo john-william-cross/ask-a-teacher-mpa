@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function Landing() {
    return (
       <>
-         {" "}
          <Header />
          <div className="container">
             <div className="row">

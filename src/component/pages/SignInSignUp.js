@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
 
 export default function SignInSignUp() {
    return (
@@ -39,18 +40,22 @@ export default function SignInSignUp() {
                      {/* <!-- <p id="password-error-message" className="d-none text-danger"></p> --> */}
 
                      <p className="text-muted">
-                        <a
+                        <Link
+                           to="/questions"
                            id="return-user-sign-in-button"
                            className="btn btn-outline-secondary logo-text-font lead sign-in mt-5"
                         >
                            Sign in
-                        </a>
+                        </Link>
                      </p>
                   </div>
 
                   <div className="text-center show-sign-up-info mt-6">
                      <p>First time here?</p>
-                     <a className="sign-in sign-up-prompt"> Sign up </a>
+                     <Link to="#" className="sign-in sign-up-prompt">
+                        {" "}
+                        Sign up{" "}
+                     </Link>
                   </div>
                   <div className="email-and-create-password d-none">
                      <h1 className="text-center logo-text-font mb-6">
@@ -79,12 +84,13 @@ export default function SignInSignUp() {
                      />
                      <p className="text-danger" id="sign-up-password-error"></p>
 
-                     <a
+                     <Link
+                        to="/questions"
                         id="lets-go-button"
                         className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
                      >
                         Let's go!
-                     </a>
+                     </Link>
                   </div>
                </div>
             </div>
