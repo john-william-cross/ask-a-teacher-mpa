@@ -1,4 +1,4 @@
-const teacherUsers = [
+const users = [
    {
       id: "c653e41b-c585-4d27-a439-4f9811eade44",
       email: "john@gmail.com",
