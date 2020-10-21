@@ -3,6 +3,7 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
 const question = questions[0].answers;
+const date = question[0].answeredAt;
 
 export default function Question() {
    return (
@@ -28,39 +29,26 @@ export default function Question() {
                         </p>
                         <div className="clearfix mb-4"></div>
                         <div className="answers">
-                           {<p className="mb-4">{question[0].text}</p>}
-                           {/* <p className="mb-4">
-                              Here’s some examples: The sky is quickly
-                              darkening, with swirling clouds and strong winds.
-                              You see lightning and hear thunder in the
-                              distance. Based on that information, you can
-                              predict that it is going to rain. Meanwhile, a
-                              family member is asleep inside your house. It
-                              rains, and they sleep through the entire storm.
-                              They wake up and look outside. There are puddles
-                              everywhere and everything is wet. From that
-                              information, they can infer that it rained.
-                           </p> */}
-                           {/* <p className="mb-4">
-                              Here are some more inferences and predictions: A
-                              little kid’s bedroom has pink walls, pink carpet,
-                              a pink bedspread, and pink picture frames on the
-                              walls. From this information, you can infer that
-                              the kid likes the color pink.
-                           </p> */}
-                           {/* <p className="mb-4">
-                              You wake up with a stuffed nose and a sore throat.
-                              You sneeze all day. You might infer that you have
-                              a cold. Your birthday party is tomorrow. You’ve
-                              been asking for a bike. As you open up presents,
-                              the first gift you open up is a bike helmet. You
-                              can predict that one of your gifts will also be a
-                              bike.
-                           </p> */}
-                           {/* <p className="text-muted mb-4">
-                              This question was answered by a teacher in
-                              Minnesota on September 4, 2020.
-                           </p> */}
+                           {
+                              <>
+                                 <p className="mb-4">
+                                    {question[0].text}
+
+                                    {/* <span className="text-muted">
+                                    This question was answered by a teacher in{" "}
+                                    {question[0].userHomeState} on {date}.
+                                 </span> */}
+                                 </p>
+
+                                 <p className="mb-4">
+                                    <span className="text-muted">
+                                       This question was answered by a teacher
+                                       in {question[0].userHomeState} on {date}.
+                                    </span>
+                                 </p>
+                              </>
+                           }
+
                            {/* 
                            <hr className="my-6" />
                            <p className="mb-4">
