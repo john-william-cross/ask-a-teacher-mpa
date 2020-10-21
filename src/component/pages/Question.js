@@ -49,59 +49,6 @@ export default function Question() {
                               </p>
                            </>
                         }
-
-                        {/* 
-                           <hr className="my-6" />
-                           <p className="mb-4">
-                              Predictions are guesses about the future based on
-                              current evidence. Inferences are conclusions drawn
-                              about the current time. Think of a detective. A
-                              detective looks at clues and makes an inference
-                              about what might have happened at a crime scene.
-                              The detective infers what happened at the crime
-                              scene, meaning she used clues to guess what
-                              already happened.
-                           </p> */}
-                        {/* 
-                           <p className="text-muted mb-4">
-                              This question was answered by a teacher in New
-                              York on May 2, 1984.
-                           </p>
-
-                           <hr className="my-6" />
-                           <p className="mb-4">
-                              Predictions and inferences are basically the same
-                              thing
-                           </p>
-
-                           <p className="text-muted mb-4">
-                              This question was answered by a teacher in
-                              Minnesota on January 1, 2000.
-                           </p> */}
-                        {/* <hr className="my-6" />
-                           <p className="mb-4">
-                              A prediction is a guess about what will happen in
-                              the future. An inference is a conclusion made
-                              based on evidence.
-                           </p>
-
-                           <p className="text-muted mb-4">
-                              This question was answered by a teacher in Nevada
-                              on December 25, 1901.
-                           </p> */}
-                        {/* <hr className="my-6" />
-
-                           <div className="mb-3">
-                              <Link to="http://wpsu.org/games/wpsuGames_DetectivesNotebook/index.html">
-                                 Here
-                              </Link>{" "}
-                              is a great game that teaches the difference!
-                           </div>
-
-                           <p className="text-muted mb-4">
-                              This question was answered by a teacher in Nevada
-                              on October 13, 2019.
-                           </p> */}
                      </div>
 
                      <hr className="my-6" />
@@ -134,18 +81,6 @@ export default function Question() {
                         Submit answer
                      </button>
                   </div>
-
-                  {/* 
-                     <p className="text-muted float-right">
-                        <span
-                           className="text-danger"
-                           id="question-input-char-count"
-                        >
-                           0
-                        </span>
-                        /500
-                     </p> */}
-                  {/* </div> */}
                </div>
             </div>
          </div>
