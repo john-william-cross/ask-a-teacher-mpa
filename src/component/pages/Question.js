@@ -2,8 +2,11 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
-const question = questions[0].answers;
-const date = question[0].answeredAt;
+const answers = questions[0].answers; // map through all answers
+// create answers component
+// map over all answers on this page
+// render an answer component for each answer
+const date = answers[0].answeredAt;
 
 export default function Question() {
    return (
@@ -25,24 +28,24 @@ export default function Question() {
                         Asked on June 1, 2020
                      </p>
                      <p className="text-muted asked-on-answers-num float-right">
-                        5 answers
+                        {answers.length} answers
                      </p>
                      <div className="clearfix mb-4"></div>
                      <div className="answers">
                         {
                            <>
                               <p className="mb-4">
-                                 {question[0].text}
+                                 {answers[0].text}
 
                                  {/* <span className="text-muted">
                                        This question was answered by a teacher
-                                       in {question[0].userHomeState} on {date}.
+                                       in {answers[0].userHomeState} on {date}.
                                     </span> */}
                               </p>
 
                               <p className="mb-4 text-muted">
                                  This question was answered by a teacher in{" "}
-                                 {question[0].userHomeState} on {date}.
+                                 {answers[0].userHomeState} on {date}.
                               </p>
                            </>
                         }
