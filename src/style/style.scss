@@ -59,6 +59,7 @@ a {
    }
 }
 .answers {
+   white-space: pre-wrap;
    @include media-breakpoint-only(xs) {
       font-size: 16px;
    }
@@ -76,6 +77,10 @@ a {
    @include media-breakpoint-only(xl) {
       margin-bottom: 10px;
    }
+}
+
+.linebreak {
+   white-space: prewrap;
 }
 
 .submit-new-question,

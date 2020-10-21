@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
-const question = questions[0];
+const question = questions[0].answers;
 
 export default function Question() {
    return (
@@ -28,8 +28,7 @@ export default function Question() {
                         </p>
                         <div className="clearfix mb-4"></div>
                         <div className="answers">
-                           <p className=" mb-4">{question.text}</p>
-
+                           {<p className="mb-4">{question[0].text}</p>}
                            {/* <p className="mb-4">
                               Here’s some examples: The sky is quickly
                               darkening, with swirling clouds and strong winds.
@@ -42,7 +41,6 @@ export default function Question() {
                               everywhere and everything is wet. From that
                               information, they can infer that it rained.
                            </p> */}
-
                            {/* <p className="mb-4">
                               Here are some more inferences and predictions: A
                               little kid’s bedroom has pink walls, pink carpet,
@@ -50,7 +48,6 @@ export default function Question() {
                               walls. From this information, you can infer that
                               the kid likes the color pink.
                            </p> */}
-
                            {/* <p className="mb-4">
                               You wake up with a stuffed nose and a sore throat.
                               You sneeze all day. You might infer that you have
@@ -60,7 +57,6 @@ export default function Question() {
                               can predict that one of your gifts will also be a
                               bike.
                            </p> */}
-
                            {/* <p className="text-muted mb-4">
                               This question was answered by a teacher in
                               Minnesota on September 4, 2020.
@@ -93,7 +89,6 @@ export default function Question() {
                               This question was answered by a teacher in
                               Minnesota on January 1, 2000.
                            </p> */}
-
                            {/* <hr className="my-6" />
                            <p className="mb-4">
                               A prediction is a guess about what will happen in
@@ -105,7 +100,6 @@ export default function Question() {
                               This question was answered by a teacher in Nevada
                               on December 25, 1901.
                            </p> */}
-
                            {/* <hr className="my-6" />
 
                            <div className="mb-3">
