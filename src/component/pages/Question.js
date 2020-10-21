@@ -26,11 +26,22 @@ export default function Question() {
                   <p className="text-muted asked-on-answers-num float-left">
                      Asked on June 1, 2020
                   </p>
+
                   {questions.map((question) => {
-                     return question.answers.map((answer) => {
+                     return question[0].answers.map((answer) => {
                         return answer.text;
                      });
                   })}
+
+                  {/* {questions[0].answers.map((answer) => {
+                     return answer.text;
+                  })} */}
+
+                  {/* questions.map((question) => {
+                        question.answers.map((answer) => {
+                        // do stuff to each answer
+                       }
+                      } */}
                   {/* <div className="clearfix mb-4"></div>
 
                   <hr className="my-6" />
