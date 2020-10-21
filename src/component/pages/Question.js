@@ -26,9 +26,10 @@ export default function Question() {
                   <p className="text-muted asked-on-answers-num float-left">
                      Asked on June 1, 2020
                   </p>
-                  <Answers />
-                  {questions.map(({ question }) => {
-                     return <Answers answers={question.answers[text]} />;
+                  {questions.map((question) => {
+                     return question.answers.map((answer) => {
+                        return answer.text;
+                     });
                   })}
                   {/* <div className="clearfix mb-4"></div>
 
