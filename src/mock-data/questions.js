@@ -16,7 +16,7 @@ const questions = [
          {
             answerId: "3681497b-e639-42eb-b7cf-00af98ebd64d",
             text:
-               "\n\nPredictions are guesses about the future based on current evidence. Inferences are conclusions drawn about the current time. Think of a detective. A detective looks at clues and makes an inference about what might have happened at a crime scene. The detective infers what happened at the crime scene, meaning she used clues to guess what already happened.",
+               "\n\nPredictions are guesses about the future based on current evidence. Inferences are conclusions drawn about the current time. Think of a detective. A detective looks at clues and makes an inference about what might have happened at a crime scene. The detective infers what happened at the crime scene, meaning she used clues to guess what already happened.\n\n",
             answeredAt: 1603232097,
             userId: "5d127345-c95d-42c3-bd84-faccfe2e0004",
             userHomeState: "Nevada",

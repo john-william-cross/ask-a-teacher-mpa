@@ -15,17 +15,21 @@ export default function Answer() {
          <div className="clearfix mb-4"></div>
          <div className="answers" style={{ textAlign: "justify" }}>
             {questions[0].answers.map((answer) => {
-               return answer.text;
+               return (
+                  <div className="answers">
+                     <p className="mb-4 text-muted">
+                        {" "}
+                        {answer.text}
+                        This question was answered by a teacher in{" "}
+                        {answers[0].userHomeState} on{" "}
+                        {toDisplayDate(answeredAtDate, "MMM. d, y")}.
+                     </p>
+                  </div>
+               );
             })}
          </div>
+
          <div className=" mb-4"></div>
-         <div className="answers">
-            <p className="mb-4 text-muted">
-               This question was answered by a teacher in{" "}
-               {answers[0].userHomeState} on{" "}
-               {toDisplayDate(answeredAtDate, "MMM. d, y")}.
-            </p>
-         </div>
       </>
    );
 }
