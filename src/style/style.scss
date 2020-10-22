@@ -61,7 +61,7 @@ a {
 .answers {
    white-space: pre-wrap;
    @include media-breakpoint-only(xs) {
-      font-size: 16px;
+      font-size: 12px;
    }
    @include media-breakpoint-only(sm) {
       font-size: 16px;
