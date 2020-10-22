@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../ui/Header";
 import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 const question = questions[0];

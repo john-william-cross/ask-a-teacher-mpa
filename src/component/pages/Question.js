@@ -5,15 +5,8 @@ import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 
 import Answers from "../ui/Answers";
-const answers = questions[0].answers; // map through all answers
-// create answers component
-// map over all answers on this page
-// render an answer component for each answer
-const date = answers[0].answeredAt;
-const answeredAtDate = answers[0].answeredAt;
+const answers = questions[0].answers;
 const createdAtDate = questions[0].createdAt;
-
-// const question = question[0]
 
 export default function Question() {
    return (
