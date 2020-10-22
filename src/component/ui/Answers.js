@@ -7,7 +7,7 @@ const answers = questions[0].answers; // map through all answers
 // create answers component
 // map over all answers on this page
 // render an answer component for each answer
-const date = answers[0].answeredAt;
+const answeredAtDate = answers[0].answeredAt;
 
 export default function Answer() {
    return (
@@ -37,7 +37,8 @@ export default function Answer() {
          <div className="answers">
             <p className="mb-4 text-muted">
                This question was answered by a teacher in{" "}
-               {answers[0].userHomeState} on {toDisplayDate(date, "MMM. d, y")}.
+               {answers[0].userHomeState} on{" "}
+               {toDisplayDate(answeredAtDate, "MMM. d, y")}.
             </p>
          </div>
       </>
