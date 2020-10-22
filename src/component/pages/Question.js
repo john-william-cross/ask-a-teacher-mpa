@@ -2,13 +2,17 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
+import toDisplayDate from "date-fns/format";
+
 import Answers from "../ui/Answers";
+import Answer from "../ui/Answers";
 const answers = questions[0].answers; // map through all answers
 // create answers component
 // map over all answers on this page
 // render an answer component for each answer
 const date = answers[0].answeredAt;
-let newArray = [];
+
+// const question = question[0]
 
 export default function Question() {
    return (
@@ -31,18 +35,9 @@ export default function Question() {
                      <p className="text-muted asked-on-answers-num float-right">
                         {answers.length} answers
                      </p>
-                     <div className="clearfix mb-4"></div>
-                     <div class="answers" style={{ textAlign: "justify" }}>
-                        {questions[0].answers.map((answer) => {
-                           return answer.text;
-                        })}
-                     </div>
 
-                     {/* questions.map((question) => {
-                        question.answers.map((answer) => {
-                        // do stuff to each answer
-                       }
-                      } */}
+                     <Answers />
+
                      <div className="clearfix mb-7"></div>
                      <hr className="my-6" />
                      <p className="lead mt-1">Your answer</p>
