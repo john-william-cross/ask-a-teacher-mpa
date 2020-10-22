@@ -57,7 +57,7 @@ export default function SignInSignUp() {
                         Sign up{" "}
                      </Link>
                   </div>
-                  <div className="email-and-create-password d-none">
+                  <div className="email-and-create-password ">
                      <h1 className="text-center logo-text-font mb-6">
                         Thanks for joining us!
                      </h1>
