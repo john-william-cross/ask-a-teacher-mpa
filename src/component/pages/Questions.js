@@ -23,8 +23,6 @@ export default function Questions() {
                      <DisplayQuestions />
 
                      <div className="clearfix mb-4"></div>
-
-                     <hr className="my-6" />
                   </div>
                </div>
             </div>

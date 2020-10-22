@@ -31,7 +31,6 @@ export default function Question() {
                      <Answers />
 
                      <div className="clearfix mb-7"></div>
-                     <hr className="my-6" />
                      <p className="lead mt-1">Your answer</p>
                      <textarea
                         className="form-control form-control-lg"

@@ -22,6 +22,8 @@ export default function DisplayQuestions() {
                   <p className="text-muted asked-on-answers-num float-right">
                      {question.answers.length} answers
                   </p>
+                  <hr className="mt-8 mb-n3" />
+
                   <div className="clearfix mb-4"></div>
                </div>
             );
