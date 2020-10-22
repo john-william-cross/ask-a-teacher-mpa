@@ -8,6 +8,7 @@ const answers = questions[0].answers; // map through all answers
 // map over all answers on this page
 // render an answer component for each answer
 const date = answers[0].answeredAt;
+let newArray = [];
 
 export default function Question() {
    return (
@@ -26,26 +27,25 @@ export default function Question() {
                   <p className="text-muted asked-on-answers-num float-left">
                      Asked on June 1, 2020
                   </p>
-
-                  {questions.map((question) => {
-                     return question[0].answers.map((answer) => {
-                        return answer.text;
+                  <p className="text-muted asked-on-answers-num float-right">
+                     {answers.length} answers
+                  </p>
+                  <div className="clearfix"></div>
+                  {/* {questions.map((question) => {
+                     return question.answers.map((answer) => {
+                        return <Answers answer={answer.text} />;
                      });
-                  })}
-
-                  {/* {questions[0].answers.map((answer) => {
+                  })} */}{" "}
+                  {questions[0].answers.map((answer) => {
                      return answer.text;
-                  })} */}
-
+                  })}
                   {/* questions.map((question) => {
                         question.answers.map((answer) => {
                         // do stuff to each answer
                        }
                       } */}
-                  {/* <div className="clearfix mb-4"></div>
-
+                  <div className="clearfix mb-4"></div>
                   <hr className="my-6" />
-
                   <p className="lead mt-1">Your answer</p>
                   <textarea
                      className="form-control form-control-lg"
@@ -53,14 +53,12 @@ export default function Question() {
                      rows="10"
                      style={{ width: "100%" }}
                   ></textarea>
-
                   <p className="float-right lead mt-0 text-muted">
                      <span className="text-danger" id="answer-input-char-count">
                         0
                      </span>
                      /2000
                   </p>
-
                   <button
                      className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
                      id="submit-answer"
@@ -69,7 +67,7 @@ export default function Question() {
                      value="Submit answer"
                   >
                      Submit answer
-                  </button> */}
+                  </button>
                </div>
             </div>
          </div>

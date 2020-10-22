@@ -8,7 +8,7 @@ const answers = questions[0].answers; // map through all answers
 // render an answer component for each answer
 const date = answers[0].answeredAt;
 
-export default function Answer(props) {
+export default function Answer() {
    return (
       <>
          <Header />
