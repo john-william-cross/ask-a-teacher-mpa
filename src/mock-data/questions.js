@@ -17,7 +17,7 @@ const questions = [
             answerId: "3681497b-e639-42eb-b7cf-00af98ebd64d",
             text:
                "\n\nPredictions are guesses about the future based on current evidence. Inferences are conclusions drawn about the current time. Think of a detective. A detective looks at clues and makes an inference about what might have happened at a crime scene. The detective infers what happened at the crime scene, meaning she used clues to guess what already happened.\n\n",
-            answeredAt: 1603232097,
+            answeredAt: 1500380071259,
             userId: "5d127345-c95d-42c3-bd84-faccfe2e0004",
             userHomeState: "Nevada",
          },
@@ -27,13 +27,13 @@ const questions = [
       questionId: "30a95c2b-ed3c-46a4-b32f-7bcb5aef7143",
       text: "What is the area model of multiplication?",
       email: "jay@hotmail.com",
-      createdAt: 1603232099,
+      createdAt: 1600380071259,
       answers: [
          {
             answerId: "c69631b0-bf11-41c2-86b9-5e3c0c8ab182",
             text:
                "You may need to submit a new question in which you say what grade your child is in, because different methods for solving multiplication problems are introduced at different grades.",
-            answeredAt: 1603232061,
+            answeredAt: 1600650071259,
             userId: "c653e41b-c585-4d27-a439-4f9811eade44",
             userHomeState: "Iowa",
          },
@@ -41,7 +41,7 @@ const questions = [
             answerId: "6423a37b-459e-4376-93d4-e0535bbbe9c5",
             text:
                "If it is multiplication, please google `area model multiplication common core` and you should find some good examples",
-            answeredAt: 1603200061,
+            answeredAt: 1609380071259,
             userId: "5d127345-c95d-42c3-bd84-faccfe2e0004",
             userHomeState: "Nevada",
          },
