@@ -5,8 +5,9 @@ import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 
 import Answers from "../ui/Answers";
-const answers = questions[0].answers;
-const createdAtDate = questions[0].createdAt;
+const question = questions[0];
+const answers = question.answers;
+const createdAtDate = question.createdAt;
 
 export default function Question() {
    return (
@@ -18,10 +19,7 @@ export default function Question() {
                <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                   <div className="col-12">
                      <div className="lead mb-4">
-                        <Link to="question">
-                           What is the difference between an inference and a
-                           prediction?
-                        </Link>
+                        <Link to="question">{question.text}</Link>
                      </div>
                      <p className="text-muted asked-on-answers-num float-left">
                         Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.

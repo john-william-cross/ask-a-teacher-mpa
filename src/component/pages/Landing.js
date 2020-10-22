@@ -24,19 +24,19 @@ export default function Landing() {
                      style={{ width: "100%" }}
                   ></textarea>
 
-                  <div className="submit-new-question text-center d-none">
+                  <div className="submit-new-question text-center ">
                      <p className="mt-3">Don't see what you're looking for?</p>
 
                      <Link
                         to="submit-question"
-                        className="submit-new-question d-none mt-1"
+                        className="submit-new-question  mt-1"
                      >
                         Submit a new question
                      </Link>
                   </div>
                </div>
             </div>
-            <div className="row d-none home-page-question">
+            <div className="row  home-page-question">
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-6">
                   <p className="lead">
                      <Link to="question">

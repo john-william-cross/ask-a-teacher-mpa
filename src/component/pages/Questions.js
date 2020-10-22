@@ -3,8 +3,6 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
-const answers = questions[0].answers;
-const createdAtDate = questions[0].createdAt;
 
 export default function Questions() {
    return (
@@ -24,54 +22,30 @@ export default function Questions() {
 
                      <div className="clearfix"></div>
 
-                     <div className="lead mt-4">
-                        <Link to="question">
-                           What is the difference between an inference and a
-                           prediction?
-                        </Link>
-                     </div>
+                     {/* map over each question in questions, display it */}
 
-                     <p className="text-muted asked-on-answers-num float-left">
-                        Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
-                     </p>
-
-                     <p className="text-muted asked-on-answers-num float-right">
-                        {answers.length} answers
-                     </p>
-                     <div className="clearfix mb-4"></div>
-
-                     <hr className="my-6" />
-                     <div className="lead">
-                        <Link to="/question">
-                           What is the area model of multiplication?
-                        </Link>
-                     </div>
-
-                     <p className="text-muted asked-on-answers-num d-inline">
-                        Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
-                     </p>
-                     <p className="text-muted asked-on-answers-num d-inline float-right">
-                        {answers.length} answers
-                     </p>
-
-                     <div className="clearfix mb-4"></div>
-
-                     <hr className="my-6" />
-                     <div className="lead">
-                        <Link to="/question">
-                           I don’t know anything about common core my child is
-                           having trouble with math and I don’t know how he’s
-                           supposed to do it he says I’m not showing him the
-                           right way please help
-                        </Link>
-                     </div>
-
-                     <p className="text-muted asked-on-answers-num d-inline">
-                        Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
-                     </p>
-                     <p className="text-muted asked-on-answers-num d-inline float-right">
-                        {answers.length} answers{" "}
-                     </p>
+                     {questions.map((question) => {
+                        console.log(`here: `, question.createdAt);
+                        return (
+                           <div key={question.id}>
+                              <div className="lead mt-4">
+                                 <Link to="question">{question.text}</Link>
+                              </div>
+                              <p className="text-muted asked-on-answers-num float-left">
+                                 Asked on{" "}
+                                 {toDisplayDate(
+                                    question.createdAt,
+                                    "MMM. d, y"
+                                 )}
+                                 .
+                              </p>
+                              <p className="text-muted asked-on-answers-num float-right">
+                                 {question.answers.length} answers
+                              </p>
+                              <div className="clearfix mb-4"></div>
+                           </div>
+                        );
+                     })}
 
                      <div className="clearfix mb-4"></div>
 

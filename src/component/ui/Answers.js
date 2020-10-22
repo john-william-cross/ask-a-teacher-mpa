@@ -12,7 +12,7 @@ export default function Answer() {
             {answers.map((answer) => {
                console.log(answer);
                return (
-                  <div className="answers">
+                  <div className="answers" key={answer.id}>
                      <p className="mb-4">
                         {answer.text}
                         <span className="text-muted">
