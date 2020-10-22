@@ -12,21 +12,6 @@ const answeredAtDate = answers[0].answeredAt;
 export default function Answer() {
    return (
       <>
-         {/* <p className="text-muted asked-on-answers-num float-right">
-            {answers.length} answers
-         </p>
-         <div className="clearfix mb-4"></div>
-         <div className="answers">
-            {
-               <>
-                  <p className="mb-4">{answers[0].text}</p>
-                  <p className="mb-4 text-muted">
-                     This question was answered by a teacher in{" "}
-                     {answers[0].userHomeState} on {date}.
-                  </p>
-               </>
-            }
-         </div> */}
          <div className="clearfix mb-4"></div>
          <div className="answers" style={{ textAlign: "justify" }}>
             {questions[0].answers.map((answer) => {
