@@ -17,12 +17,14 @@ export default function Answer() {
             {questions[0].answers.map((answer) => {
                return (
                   <div className="answers">
-                     <p className="mb-4 text-muted">
+                     <p className="mb-4">
                         {" "}
                         {answer.text}
-                        This question was answered by a teacher in{" "}
-                        {answers[0].userHomeState} on{" "}
-                        {toDisplayDate(answeredAtDate, "MMM. d, y")}.
+                        <span className="text-muted">
+                           This question was answered by a teacher in{" "}
+                           {answers[0].userHomeState} on{" "}
+                           {toDisplayDate(answeredAtDate, "MMM. d, y")}.
+                        </span>
                      </p>
                   </div>
                );
