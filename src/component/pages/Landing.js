@@ -11,7 +11,7 @@ export default function Landing() {
             <div className="row">
                <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-xs-5 mt-9">
                   <p
-                     className="lead logo-text-font"
+                     className="logo-text-font landing-page-title"
                      style={{ textAlign: "center" }}
                   >
                      Ask a teacher
@@ -25,7 +25,7 @@ export default function Landing() {
                      style={{ width: "100%" }}
                   ></textarea>
 
-                  <div className="submit-new-question text-center ">
+                  <div className=" text-center ">
                      <p className="mt-6">Don't see what you're looking for?</p>
 
                      <Link

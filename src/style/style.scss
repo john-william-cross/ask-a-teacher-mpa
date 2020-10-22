@@ -83,7 +83,9 @@ a {
    white-space: prewrap;
 }
 
-.submit-new-question,
+.submit-new-question {
+   font-weight: bold;
+}
 .sign-up-prompt {
    font-weight: $font-weight-bold;
 }
@@ -149,6 +151,7 @@ a {
       margin-top: 30px;
    }
    @include media-breakpoint-only(xl) {
+      margin-top: 10px;
    }
 }
 
@@ -168,6 +171,26 @@ a {
    }
    @include media-breakpoint-only(xl) {
       // fonts-size: $font-size-base * 3;
+      margin-top: 15px;
+   }
+}
+
+.landing-page-title {
+   @include media-breakpoint-only(xs) {
+      font-size: $font-size-base;
+      margin-top: -20px;
+   }
+   @include media-breakpoint-only(sm) {
+      font-size: $font-size-base * 1.5;
+   }
+   @include media-breakpoint-only(md) {
+      font-size: $font-size-base * 2;
+   }
+   @include media-breakpoint-only(lg) {
+      font-size: $font-size-base * 2.5;
+   }
+   @include media-breakpoint-only(xl) {
+      font-size: $font-size-base * 3;
       margin-top: 15px;
    }
 }
