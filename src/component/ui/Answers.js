@@ -12,7 +12,6 @@ const date = answers[0].answeredAt;
 export default function Answer() {
    return (
       <>
-         <Header />
          {/* <p className="text-muted asked-on-answers-num float-right">
             {answers.length} answers
          </p>
