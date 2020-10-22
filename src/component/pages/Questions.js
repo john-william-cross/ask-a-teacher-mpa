@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
+import questions from "../../mock-data/questions";
+import Answers from "../ui/Answers";
+const answers = questions[0].answers;
 
 export default function Questions() {
    return (
@@ -30,7 +33,7 @@ export default function Questions() {
                         Asked on June 1, 2020
                      </p>
                      <p className="text-muted asked-on-answers-num float-right">
-                        5 answers
+                        {answers.length} answers
                      </p>
                      <div className="clearfix mb-4"></div>
 

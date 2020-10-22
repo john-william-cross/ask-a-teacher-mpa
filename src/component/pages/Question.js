@@ -11,6 +11,7 @@ const answers = questions[0].answers; // map through all answers
 // render an answer component for each answer
 const date = answers[0].answeredAt;
 const answeredAtDate = answers[0].answeredAt;
+const createdAtDate = questions[0].createdAt;
 
 // const question = question[0]
 
@@ -30,7 +31,7 @@ export default function Question() {
                         </Link>
                      </div>
                      <p className="text-muted asked-on-answers-num float-left">
-                        Asked on June 1, 2020
+                        Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
                      </p>
                      <p className="text-muted asked-on-answers-num float-right">
                         {answers.length} answers
