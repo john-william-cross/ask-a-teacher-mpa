@@ -3,14 +3,10 @@ import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 import { Link } from "react-router-dom";
 
-const question = questions[0];
-const answers = question.answers;
-
 export default function DisplayQuestions() {
    return (
       <>
          {questions.map((question) => {
-            console.log(`here: `, question.createdAt);
             return (
                <div key={question.id}>
                   <div className="lead mt-6 mb-1">
