@@ -99,10 +99,10 @@ export default class SignUp extends React.Component {
                <div className="row">
                   <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                      <div className="email-and-create-password ">
-                        <h1 className="text-center logo-text-font mt-n2 mb-7">
+                        <h1 className="text-center logo-text-font mt-n5 mt-md-3">
                            Thanks for joining us!
                         </h1>
-                        <p className="mt-2">Where do you teach?</p>
+                        <p className="mt-6">Where do you teach?</p>
                         <select className="col-5 form-control form-control-lg mb-5 mt-3">
                            <option value="AL">Alabama</option>
                            <option value="AK">Alaska</option>
