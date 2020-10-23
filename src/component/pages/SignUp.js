@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
 
 //functions go in react classes
 export default class SignUp extends React.Component {
@@ -54,7 +53,6 @@ export default class SignUp extends React.Component {
                            Thanks for joining us!
                         </h1>
                         <p className="mt-2">Where do you teach?</p>
-
                         <select className="col-5 form-control form-control-lg mb-5 mt-3">
                            <option value="AL">Alabama</option>
                            <option value="AK">Alaska</option>
@@ -108,53 +106,50 @@ export default class SignUp extends React.Component {
                            <option value="WI">Wisconsin</option>
                            <option value="WY">Wyoming</option>
                         </select>
-
                         <p className="mt-2">Enter your CCSD email</p>
-                        {this.state && (
-                           <>
-                              <input
-                                 id="email-input"
-                                 className={classnames({
-                                    "form-control": true,
-                                    "form-control-lg": true,
-                                    "is-invalid": this.state.emailError,
-                                 })}
-                                 type="email"
-                              />
+                        <>
+                           <input
+                              id="email-input"
+                              className={classnames({
+                                 "form-control": true,
+                                 "form-control-lg": true,
+                                 "is-invalid": this.state.emailError,
+                              })}
+                              type="email"
+                           />
 
-                              {this.state.hasEmailError && (
-                                 <p className="text-danger">
-                                    {this.state.emailError}
-                                 </p>
-                              )}
-                              <p className="mt-5">Create a password</p>
-                              <p className="text-muted line-height-0">
-                                 Password must be at least 9 characters
+                           {this.state.hasEmailError && (
+                              <p className="text-danger">
+                                 {this.state.emailError}
                               </p>
+                           )}
+                           <p className="mt-5">Create a password</p>
+                           <p className="text-muted line-height-0">
+                              Password must be at least 9 characters
+                           </p>
 
-                              <input
-                                 className="form-control form-control-lg"
-                                 id="sign-up-password-input"
-                                 type="password"
-                                 placeholder=""
-                              />
-                              <p
-                                 className="text-danger"
-                                 id="sign-up-password-error"
-                              ></p>
+                           <input
+                              className="form-control form-control-lg"
+                              id="sign-up-password-input"
+                              type="password"
+                              placeholder=""
+                           />
+                           <p
+                              className="text-danger"
+                              id="sign-up-password-error"
+                           ></p>
 
-                              <button
-                                 to="questions"
-                                 id="lets-go-button"
-                                 className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
-                                 onClick={() => {
-                                    this.validateAndCreateUser();
-                                 }}
-                              >
-                                 Let's go!
-                              </button>
-                           </>
-                        )}
+                           <button
+                              to="questions"
+                              id="lets-go-button"
+                              className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
+                              onClick={() => {
+                                 this.validateAndCreateUser();
+                              }}
+                           >
+                              Let's go!
+                           </button>
+                        </>
                      </div>
                   </div>
                </div>

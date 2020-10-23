@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import classnames from "classnames";
+
 import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
@@ -8,12 +10,39 @@ export default class Login extends React.Component {
       super(props);
       console.log("In a new class component!");
       this.state = {
-         isDisplayingInputs: false,
          emailError: "",
          passwordError: "",
          hasEmailError: false,
       };
    }
+
+   validateUser() {
+      console.log(`validate me`);
+      const emailInput = document.getElementById("email-input").value;
+      console.log(emailInput);
+      const lowerCasedEmailInput = emailInput.toLowerCase();
+      console.log(lowerCasedEmailInput);
+
+      // eslint-disable-next-line
+
+      const emailRegex = /@nv.ccsd.net$/;
+
+      if (emailInput === "")
+         this.setState({
+            emailError: "Please enter your email address.",
+            hasEmailError: true,
+         });
+      else if (emailRegex.test(lowerCasedEmailInput) === false) {
+         console.log("not a valid email");
+         this.setState({
+            emailError: "Please enter a valid email address.",
+            hasEmailError: true,
+         });
+      } else {
+         this.setState({ emailError: "", hasEmailError: false });
+      }
+   }
+
    render() {
       return (
          <>
@@ -27,15 +56,19 @@ export default class Login extends React.Component {
                         </h1>
                         <p className="mt-2">Email</p>
                         <input
-                           id="return-user-email-input"
-                           className="form-control form-control-lg"
-                           type="text"
-                           placeholder=""
+                           id="email-input"
+                           className={classnames({
+                              "form-control": true,
+                              "form-control-lg": true,
+                              "is-invalid": this.state.emailError,
+                           })}
+                           type="email"
                         />
-                        <p
-                           id="return-user-email-error"
-                           className="text-danger"
-                        ></p>
+                        {this.state.hasEmailError && (
+                           <p className="text-danger">
+                              {this.state.emailError}
+                           </p>
+                        )}
                         <p className="mt-2">Password</p>
                         <input
                            id="return-user-password-input"
@@ -49,13 +82,16 @@ export default class Login extends React.Component {
                         ></p>
                         {/* <!-- <p id="password-error-message" className="d-none text-danger"></p> --> */}
                         <p className="text-muted">
-                           <Link
-                              to="/questions"
+                           <button
+                              to="questions"
                               id="return-user-sign-in-button"
                               className="btn btn-outline-secondary logo-text-font lead sign-in mt-5"
+                              onClick={() => {
+                                 this.validateUser();
+                              }}
                            >
                               Sign in
-                           </Link>
+                           </button>
                         </p>
                         <div className="text-center show-sign-up-info">
                            <p>First time here?</p>
