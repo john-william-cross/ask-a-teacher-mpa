@@ -68,7 +68,7 @@ a {
       margin-bottom: 6px;
    }
    @include media-breakpoint-only(md) {
-      font-size: 16px;
+      font-size: $font-size-base;
       margin-bottom: 7px;
    }
    @include media-breakpoint-only(lg) {

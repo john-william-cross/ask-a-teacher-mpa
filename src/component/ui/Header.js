@@ -22,7 +22,7 @@ export default function Header() {
                   </div>
                   <div className="col-4 col-sm-3 col-md-4 d-flex">
                      <Link
-                        to="/sign-in-sign-up"
+                        to="/LogIn"
                         className="align-self-end offset-4 no-underline text-right answer-question-link"
                      >
                         Answer a question
