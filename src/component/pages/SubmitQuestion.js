@@ -13,7 +13,7 @@ export default class SubmitQuestion extends React.Component {
       };
    }
 
-   validateEmail() {
+   setEmailState() {
       console.log(`validate me`);
       const emailInput = document.getElementById("questioner-email-input")
          .value;
@@ -93,7 +93,7 @@ export default class SubmitQuestion extends React.Component {
                            // disabled
                            value="Ask a teacher"
                            onClick={() => {
-                              this.validateEmail();
+                              this.setEmailState();
                            }}
                         />
                      </div>

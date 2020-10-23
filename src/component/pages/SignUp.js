@@ -14,7 +14,7 @@ export default class SignUp extends React.Component {
       };
    }
 
-   validateEmail(emailInput) {
+   setEmailState(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
       // eslint-disable-next-line
@@ -36,7 +36,7 @@ export default class SignUp extends React.Component {
       }
    }
 
-   validatePassword(passwordInput) {
+   setPasswordState(passwordInput) {
       console.log(passwordInput);
    }
 
@@ -44,8 +44,8 @@ export default class SignUp extends React.Component {
       const emailInput = document.getElementById("signup-email-input").value;
       const passwordInput = document.getElementById("signup-password-input")
          .value;
-      this.validateEmail(emailInput);
-      this.validatePassword(passwordInput);
+      this.setEmailState(emailInput);
+      this.setPasswordState(passwordInput);
    }
 
    render() {

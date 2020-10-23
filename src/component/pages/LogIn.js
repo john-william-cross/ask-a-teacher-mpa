@@ -16,7 +16,7 @@ export default class Login extends React.Component {
       };
    }
 
-   validateEmail(emailInput) {
+   setEmailState(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
 
@@ -38,7 +38,7 @@ export default class Login extends React.Component {
          this.setState({ emailError: "", hasEmailError: false });
       }
    }
-   validatePassword(passwordInput) {
+   setPasswordState(passwordInput) {
       console.log(passwordInput);
    }
 
@@ -46,8 +46,8 @@ export default class Login extends React.Component {
       const emailInput = document.getElementById("login-email-input").value;
       const passwordInput = document.getElementById("login-password-input")
          .value;
-      this.validateEmail(emailInput);
-      this.validatePassword(passwordInput);
+      this.setEmailState(emailInput);
+      this.setPasswordState(passwordInput);
    }
 
    render() {
