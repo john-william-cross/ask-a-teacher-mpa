@@ -1,9 +1,47 @@
 import React from "react";
 import Header from "../ui/Header";
+import classnames from "classnames";
 import { Link } from "react-router-dom";
 
 //functions go in react classes
 export default class SignUp extends React.Component {
+   //we can set the state in constructor
+   constructor(props) {
+      super(props);
+      this.state = {
+         emailError: "",
+         passwordError: "",
+         hasEmailError: false,
+      };
+   }
+
+   validateAndCreateUser() {
+      console.log(`validate me`);
+      const emailInput = document.getElementById("email-input").value;
+      console.log(emailInput);
+      const lowerCasedEmailInput = emailInput.toLowerCase();
+      console.log(lowerCasedEmailInput);
+
+      // eslint-disable-next-line
+
+      const emailRegex = /@nv.ccsd.net$/;
+
+      if (emailInput === "")
+         this.setState({
+            emailError: "Please enter your email address.",
+            hasEmailError: true,
+         });
+      else if (emailRegex.test(lowerCasedEmailInput) === false) {
+         console.log("not a valid email");
+         this.setState({
+            emailError: "Please enter a valid email address.",
+            hasEmailError: true,
+         });
+      } else {
+         this.setState({ emailError: "", hasEmailError: false });
+      }
+   }
+
    render() {
       return (
          <>
@@ -15,9 +53,9 @@ export default class SignUp extends React.Component {
                         <h1 className="text-center logo-text-font mb-6">
                            Thanks for joining us!
                         </h1>
-                        <p class="mt-2">Where do you teach?</p>
+                        <p className="mt-2">Where do you teach?</p>
 
-                        <select class="col-5 form-control form-control-lg mb-5 mt-3">
+                        <select className="col-5 form-control form-control-lg mb-5 mt-3">
                            <option value="AL">Alabama</option>
                            <option value="AK">Alaska</option>
                            <option value="AZ">Arizona</option>
@@ -72,38 +110,51 @@ export default class SignUp extends React.Component {
                         </select>
 
                         <p className="mt-2">Enter your CCSD email</p>
-                        <input
-                           id="sign-up-email-input"
-                           className="form-control form-control-lg"
-                           type="text"
-                        />
-                        <p
-                           className="text-danger mb-4"
-                           id="sign-up-email-error"
-                        ></p>
-                        <p className="mt-5">Create a password</p>
-                        <p className="text-muted line-height-0">
-                           Password must be at least 9 characters
-                        </p>
+                        {this.state && (
+                           <>
+                              <input
+                                 id="email-input"
+                                 className={classnames({
+                                    "form-control": true,
+                                    "form-control-lg": true,
+                                    "is-invalid": this.state.emailError,
+                                 })}
+                                 type="email"
+                              />
 
-                        <input
-                           className="form-control form-control-lg"
-                           id="sign-up-password-input"
-                           type="password"
-                           placeholder=""
-                        />
-                        <p
-                           className="text-danger"
-                           id="sign-up-password-error"
-                        ></p>
+                              {this.state.hasEmailError && (
+                                 <p className="text-danger">
+                                    {this.state.emailError}
+                                 </p>
+                              )}
+                              <p className="mt-5">Create a password</p>
+                              <p className="text-muted line-height-0">
+                                 Password must be at least 9 characters
+                              </p>
 
-                        <Link
-                           to="/questions"
-                           id="lets-go-button"
-                           className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
-                        >
-                           Let's go!
-                        </Link>
+                              <input
+                                 className="form-control form-control-lg"
+                                 id="sign-up-password-input"
+                                 type="password"
+                                 placeholder=""
+                              />
+                              <p
+                                 className="text-danger"
+                                 id="sign-up-password-error"
+                              ></p>
+
+                              <button
+                                 to="questions"
+                                 id="lets-go-button"
+                                 className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
+                                 onClick={() => {
+                                    this.validateAndCreateUser();
+                                 }}
+                              >
+                                 Let's go!
+                              </button>
+                           </>
+                        )}
                      </div>
                   </div>
                </div>

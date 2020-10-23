@@ -60,14 +60,6 @@ export default class Login extends React.Component {
                         <div className="text-center show-sign-up-info">
                            <p>First time here?</p>
                            <Link to="SignUp">Sign up </Link>
-
-                           {/* <Link
-                                    to="/questions"
-                                    id="lets-go-button"
-                                    className="btn btn-outline-secondary logo-text-font lead sign-in mt-5 mb-9"
-                                 >
-                                    Let's go!
-                                 </Link> */}
                         </div>{" "}
                      </div>
                   </div>
