@@ -90,6 +90,7 @@ export default class SubmitQuestion extends React.Component {
                            className="logo-text-font submit-question-button btn btn-lg btn-outline-secondary mb-8"
                            id="ask-a-teacher-submit-button"
                            type="submit"
+                           // disabled
                            value="Ask a teacher"
                            onClick={() => {
                               this.validateEmail();
