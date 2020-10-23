@@ -16,15 +16,11 @@ export default class Login extends React.Component {
       };
    }
 
-   validateUser() {
-      console.log(`validate me`);
-      const emailInput = document.getElementById("login-email-input").value;
-      console.log(emailInput);
+   validateEmail(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
 
       // eslint-disable-next-line
-
       const emailRegex = /@nv.ccsd.net$/;
 
       if (emailInput === "")
@@ -41,6 +37,17 @@ export default class Login extends React.Component {
       } else {
          this.setState({ emailError: "", hasEmailError: false });
       }
+   }
+   validatePassword(passwordInput) {
+      console.log(passwordInput);
+   }
+
+   validateUser() {
+      const emailInput = document.getElementById("login-email-input").value;
+      const passwordInput = document.getElementById("login-password-input")
+         .value;
+      this.validateEmail(emailInput);
+      this.validatePassword(passwordInput);
    }
 
    render() {

@@ -14,13 +14,9 @@ export default class SignUp extends React.Component {
       };
    }
 
-   validateAndCreateUser() {
-      console.log(`validate me`);
-      const emailInput = document.getElementById("signup-email-input").value;
-      console.log(emailInput);
+   validateEmail(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
-
       // eslint-disable-next-line
       const emailRegex = /@nv.ccsd.net$/;
 
@@ -38,6 +34,18 @@ export default class SignUp extends React.Component {
       } else {
          this.setState({ emailError: "", hasEmailError: false });
       }
+   }
+
+   validatePassword(passwordInput) {
+      console.log(passwordInput);
+   }
+
+   validateAndCreateUser() {
+      const emailInput = document.getElementById("signup-email-input").value;
+      const passwordInput = document.getElementById("signup-password-input")
+         .value;
+      this.validateEmail(emailInput);
+      this.validatePassword(passwordInput);
    }
 
    render() {
@@ -129,13 +137,13 @@ export default class SignUp extends React.Component {
 
                            <input
                               className="form-control form-control-lg"
-                              id="sign-up-password-input"
+                              id="signup-password-input"
                               type="password"
                               placeholder=""
                            />
                            <p
                               className="text-danger"
-                              id="sign-up-password-error"
+                              id="signup-password-error"
                            ></p>
 
                            <button
