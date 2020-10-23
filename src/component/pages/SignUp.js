@@ -11,6 +11,7 @@ export default class SignUp extends React.Component {
          emailError: "",
          passwordError: "",
          hasEmailError: false,
+         hasPasswordError: false,
       };
    }
 
@@ -36,8 +37,44 @@ export default class SignUp extends React.Component {
       }
    }
 
-   setPasswordState(passwordInput) {
+   checkHasLocalPart(passwordInput, emailInput) {
+      const localPart = emailInput.split("@")[0];
+      if (localPart === "") return false;
+      else if (localPart.length < 4) return false;
+      else return passwordInput.includes(localPart);
+   }
+
+   setPasswordState(passwordInput, emailInput) {
       console.log(passwordInput);
+
+      const uniqChars = [...new Set(passwordInput)];
+      console.log(uniqChars);
+
+      if (passwordInput === "") {
+         this.setState({
+            passwordError: "Please create a password.",
+            hasPasswordError: true,
+         });
+      } else if (passwordInput.length < 9) {
+         this.setState({
+            passwordError: "Your password must be at least 9 characters.",
+            hasPasswordError: true,
+         });
+      } else if (this.checkHasLocalPart(passwordInput, emailInput)) {
+         this.setState({
+            passwordError:
+               "For your safety, your password cannot contain your email address.",
+            hasPasswordError: true,
+         });
+      } else if (uniqChars.length < 3) {
+         this.setState({
+            passwordError:
+               "For your safety, your password must contain at least 3 unique characters.",
+            hasPasswordError: true,
+         });
+      } else {
+         this.setState({ passwordError: "", hasPasswordError: false });
+      }
    }
 
    validateAndCreateUser() {
@@ -45,7 +82,13 @@ export default class SignUp extends React.Component {
       const passwordInput = document.getElementById("signup-password-input")
          .value;
       this.setEmailState(emailInput);
-      this.setPasswordState(passwordInput);
+      this.setPasswordState(passwordInput, emailInput);
+      if (
+         this.state.hasEmailError === false &&
+         this.state.hasPasswordError === false
+      ) {
+         console.log("VALID!!");
+      }
    }
 
    render() {
@@ -56,7 +99,7 @@ export default class SignUp extends React.Component {
                <div className="row">
                   <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                      <div className="email-and-create-password ">
-                        <h1 className="text-center logo-text-font mb-6">
+                        <h1 className="text-center logo-text-font mt-n2 mb-7">
                            Thanks for joining us!
                         </h1>
                         <p className="mt-2">Where do you teach?</p>
@@ -136,16 +179,19 @@ export default class SignUp extends React.Component {
                            </p>
 
                            <input
-                              className="form-control form-control-lg"
                               id="signup-password-input"
-                              type="password"
-                              placeholder=""
-                           />
-                           <p
-                              className="text-danger"
-                              id="signup-password-error"
-                           ></p>
+                              className={classnames({
+                                 "form-control": true,
+                                 "form-control-lg": true,
 
+                                 "is-invalid": this.state.hasPasswordError,
+                              })}
+                           />
+                           {this.state.hasPasswordError && (
+                              <p className="text-danger">
+                                 {this.state.passwordError}
+                              </p>
+                           )}
                            <button
                               to="questions"
                               id="lets-go-button"
