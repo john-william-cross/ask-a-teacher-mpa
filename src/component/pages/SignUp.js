@@ -16,13 +16,12 @@ export default class SignUp extends React.Component {
 
    validateAndCreateUser() {
       console.log(`validate me`);
-      const emailInput = document.getElementById("email-input").value;
+      const emailInput = document.getElementById("signup-email-input").value;
       console.log(emailInput);
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
 
       // eslint-disable-next-line
-
       const emailRegex = /@nv.ccsd.net$/;
 
       if (emailInput === "")
@@ -109,7 +108,7 @@ export default class SignUp extends React.Component {
                         <p className="mt-2">Enter your CCSD email</p>
                         <>
                            <input
-                              id="email-input"
+                              id="signup-email-input"
                               className={classnames({
                                  "form-control": true,
                                  "form-control-lg": true,

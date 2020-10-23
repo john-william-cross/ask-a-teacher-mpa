@@ -15,13 +15,13 @@ export default class SubmitQuestion extends React.Component {
 
    validateEmail() {
       console.log(`validate me`);
-      const emailInput = document.getElementById("email-input").value;
+      const emailInput = document.getElementById("questioner-email-input")
+         .value;
       console.log(emailInput);
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
 
       // eslint-disable-next-line
-
       const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
       if (emailInput === "")
@@ -68,7 +68,7 @@ export default class SubmitQuestion extends React.Component {
                      <p className="lead mt-5">Enter your email</p>
 
                      <input
-                        id="email-input"
+                        id="questioner-email-input"
                         className={classnames({
                            "form-control": true,
                            "form-control-lg": true,

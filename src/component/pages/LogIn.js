@@ -18,7 +18,7 @@ export default class Login extends React.Component {
 
    validateUser() {
       console.log(`validate me`);
-      const emailInput = document.getElementById("email-input").value;
+      const emailInput = document.getElementById("login-email-input").value;
       console.log(emailInput);
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
@@ -56,7 +56,7 @@ export default class Login extends React.Component {
                         </h1>
                         <p className="mt-2">Email</p>
                         <input
-                           id="email-input"
+                           id="login-email-input"
                            className={classnames({
                               "form-control": true,
                               "form-control-lg": true,
@@ -71,7 +71,7 @@ export default class Login extends React.Component {
                         )}
                         <p className="mt-2">Password</p>
                         <input
-                           id="return-user-password-input"
+                           id="login-password-input"
                            className="form-control form-control-lg"
                            type="password"
                            placeholder=""
