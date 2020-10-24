@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../ui/Header";
 import classnames from "classnames";
-
+import hash from "object-hash";
+import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
@@ -17,7 +18,7 @@ export default class Login extends React.Component {
       };
    }
 
-   setEmailState(emailInput) {
+   async setEmailState(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
 
@@ -47,7 +48,7 @@ export default class Login extends React.Component {
       else return passwordInput.includes(localPart);
    }
 
-   setPasswordState(passwordInput, emailInput) {
+   async setPasswordState(passwordInput, emailInput) {
       console.log(passwordInput);
 
       const uniqChars = [...new Set(passwordInput)];
@@ -80,17 +81,23 @@ export default class Login extends React.Component {
       }
    }
 
-   validateUser() {
+   async validateUser() {
       const emailInput = document.getElementById("login-email-input").value;
       const passwordInput = document.getElementById("login-password-input")
          .value;
-      this.setEmailState(emailInput);
-      this.setPasswordState(passwordInput, emailInput);
+      await this.setEmailState(emailInput);
+      await this.setPasswordState(passwordInput, emailInput);
       if (
          this.state.hasEmailError === false &&
          this.state.hasPasswordError === false
       ) {
-         console.log("VALID!!");
+         const user = {
+            id: getUuid(),
+            email: emailInput,
+            password: hash(passwordInput),
+            createdAt: Date.now(),
+         };
+         console.log(user);
       }
    }
 
