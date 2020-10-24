@@ -126,9 +126,9 @@ export default class Login extends React.Component {
                            className={classnames({
                               "form-control": true,
                               "form-control-lg": true,
-
                               "is-invalid": this.state.hasPasswordError,
                            })}
+                           type="password"
                         />
                         {this.state.hasPasswordError && (
                            <p className="text-danger">
