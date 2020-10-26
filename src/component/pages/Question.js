@@ -64,7 +64,7 @@ export default class Question extends React.Component {
                               {ANSWER_MAX_CARD_CHARS}
                            </span>
                         </p>
-                        <button
+                        <button //where to submit to?
                            className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
                            id="submit-answer"
                            // disabled
