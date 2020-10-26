@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import Header from "../ui/Header";
 import DisplayQuestions from "../ui/DisplayQuestions";
+import orderBy from "lodash/orderBy";
+import questions from "../../mock-data/questions";
 
 export default class Questions extends React.Component {
    constructor(props) {
       super(props);
+      this.state = {
+         order: [["createdAt"], ["desc"]],
+         displayedQuestions: orderBy(questions, ["createdAt"], ["desc"]),
+      };
    }
 
    render() {
@@ -18,11 +24,20 @@ export default class Questions extends React.Component {
                         <h1 className="float-left top-questions">
                            Top Questions
                         </h1>
-                        <select className="float-right dropdown col-5 form-control pl-0 form-control-lg">
-                           <option value="newest">Newest</option>
+
+                        <select
+                           value={this.state.order}
+                           className="float-right dropdown col-5 form-control pl-0 form-control-lg"
+                        >
+                           onChange={(e) => this.setOrder(e)}
+                           <option value='[["createdAt], ["asc]]'>
+                              Newest
+                           </option>
                            <option value="unanswered">Unanswered</option>
-                           <option value="trending">Trending</option>
-                           <option value="answered">Answered</option>
+                           <option value='[["answers, "'>Trending</option>
+                           <option value='[["answers"], [["desc"]]]'>
+                              Answered
+                           </option>
                         </select>
 
                         <div className="clearfix"></div>
