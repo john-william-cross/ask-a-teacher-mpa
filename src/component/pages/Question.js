@@ -3,6 +3,8 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
+import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
+import classnames from "classnames";
 
 import Answers from "../ui/Answers";
 const question = questions[0];
@@ -51,10 +53,15 @@ export default class Question extends React.Component {
                         ></textarea>
                         <p className="float-right lead mt-0 text-muted">
                            <span
-                              className="text-danger"
-                              id="answer-input-char-count"
+                              className={classnames({
+                                 "text-danger": checkAnswerIsOver(
+                                    this.state.answerInput,
+                                    ANSWER_MAX_CARD_CHARS
+                                 ),
+                              })}
                            >
-                              {this.state.answerInput.length}/2000
+                              {this.state.answerInput.length}/
+                              {ANSWER_MAX_CARD_CHARS}
                            </span>
                         </p>
                         <button
