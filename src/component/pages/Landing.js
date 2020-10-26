@@ -37,7 +37,7 @@ export default function Landing() {
                   </div>
                   {questions.map((question) => {
                      return (
-                        <div key={question.id}>
+                        <div className="d-none" key={question.id}>
                            <div className="lead mt-6 mb-1">
                               <Link to="question">{question.text}</Link>
                            </div>
