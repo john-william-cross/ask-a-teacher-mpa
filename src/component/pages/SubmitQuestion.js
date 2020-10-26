@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
-import { Link } from "react-router-dom";
-import questions from "../../mock-data/questions";
-import toDisplayDate from "date-fns/format";
+
 import {
    checkQuestionIsOver,
    QUESTION_MAX_CARD_CHARS,

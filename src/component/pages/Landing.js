@@ -3,7 +3,6 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import toDisplayDate from "date-fns/format";
 import questions from "../../mock-data/questions";
-import { getElementError } from "@testing-library/react";
 
 export default class Landing extends React.Component {
    constructor(props) {
@@ -55,7 +54,7 @@ export default class Landing extends React.Component {
                         value={this.state.searchInput}
                         onChange={(e) => {
                            this.setSearchInput(e);
-                           document.getElementById("questions");
+                           // document.getElementById("questions")
                         }}
                         style={{ width: "100%" }}
                      ></textarea>
