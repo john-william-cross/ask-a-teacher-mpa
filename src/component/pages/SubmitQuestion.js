@@ -1,5 +1,12 @@
 import React from "react";
 import Header from "../ui/Header";
+import { Link } from "react-router-dom";
+import questions from "../../mock-data/questions";
+import toDisplayDate from "date-fns/format";
+import {
+   checkQuestionIsOver,
+   QUESTION_MAX_CARD_CHARS,
+} from "../../utils/helpers";
 import classnames from "classnames";
 
 export default class SubmitQuestion extends React.Component {
@@ -10,7 +17,11 @@ export default class SubmitQuestion extends React.Component {
          emailError: "",
          passwordError: "",
          hasEmailError: false,
+         questionInput: "",
       };
+   }
+   setQuestionInput(e) {
+      this.setState({ questionInput: e.target.value });
    }
 
    setEmailState() {
@@ -53,16 +64,21 @@ export default class SubmitQuestion extends React.Component {
                         id="question-input"
                         rows="10"
                         autoFocus
+                        onChange={(e) => this.setQuestionInput(e)}
                         style={{ width: "100%" }}
                      ></textarea>
                      <p className="text-muted float-right">
                         <span
-                           className="text-danger"
-                           id="question-input-char-count"
+                           className={classnames({
+                              "text-danger": checkQuestionIsOver(
+                                 this.state.questionInput,
+                                 QUESTION_MAX_CARD_CHARS
+                              ),
+                           })}
                         >
-                           0
+                           {this.state.questionInput.length}/
+                           {QUESTION_MAX_CARD_CHARS}
                         </span>
-                        /500
                      </p>
 
                      <p className="lead mt-5">Enter your email</p>
@@ -86,7 +102,7 @@ export default class SubmitQuestion extends React.Component {
                      ></p>
 
                      <div className="mt-6 text-center col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                        <input
+                        <button
                            className="logo-text-font submit-question-button btn btn-lg btn-outline-secondary mb-8"
                            id="ask-a-teacher-submit-button"
                            type="submit"
@@ -95,7 +111,9 @@ export default class SubmitQuestion extends React.Component {
                            onClick={() => {
                               this.setEmailState();
                            }}
-                        />
+                        >
+                           Ask a Teacher
+                        </button>
                      </div>
                   </div>
                </div>
