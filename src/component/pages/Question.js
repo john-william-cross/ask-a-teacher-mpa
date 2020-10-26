@@ -9,57 +9,64 @@ const question = questions[0];
 const answers = question.answers;
 const createdAtDate = question.createdAt;
 
-export default function Question() {
-   return (
-      <>
-         {" "}
-         <Header />
-         <div className="container">
-            <div className="row no-gutters">
-               <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
-                  <div className="col-12">
-                     <div className="lead mb-4">
-                        <Link to="question">{question.text}</Link>
-                     </div>
-                     <p className="text-muted asked-on-answers-num float-left">
-                        Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
-                     </p>
-                     <p className="text-muted asked-on-answers-num float-right">
-                        {answers.length} answers
-                     </p>
+export default class Question extends React.Component {
+   constructor(props) {
+      super(props);
+      console.log(`in the questions component`);
+      this.state = "";
+   }
+   render() {
+      return (
+         <>
+            {" "}
+            <Header />
+            <div className="container">
+               <div className="row no-gutters">
+                  <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
+                     <div className="col-12">
+                        <div className="lead mb-4">
+                           <Link to="question">{question.text}</Link>
+                        </div>
+                        <p className="text-muted asked-on-answers-num float-left">
+                           Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
+                        </p>
+                        <p className="text-muted asked-on-answers-num float-right">
+                           {answers.length} answers
+                        </p>
 
-                     <Answers />
+                        <Answers />
 
-                     <div className="clearfix mb-7"></div>
-                     <p className="lead mt-1">Your answer</p>
-                     <textarea
-                        className="form-control form-control-lg"
-                        id="answer-input"
-                        rows="10"
-                        style={{ width: "100%" }}
-                     ></textarea>
-                     <p className="float-right lead mt-0 text-muted">
-                        <span
-                           className="text-danger"
-                           id="answer-input-char-count"
+                        <div className="clearfix mb-7"></div>
+                        <p className="lead mt-1">Your answer</p>
+                        <textarea
+                           className="form-control form-control-lg"
+                           id="answer-input"
+                           rows="10"
+                           defaultValue=""
+                        ></textarea>
+                        <p className="float-right lead mt-0 text-muted">
+                           <span
+                              className="text-danger"
+                              id="answer-input-char-count"
+                           >
+                              0
+                           </span>
+                           /2000
+                        </p>
+                        <button
+                           className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
+                           id="submit-answer"
+                           // disabled
+                           type="submit"
+                           value="Submit answer"
                         >
-                           0
-                        </span>
-                        /2000
-                     </p>
-                     <button
-                        className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
-                        id="submit-answer"
-                        // disabled
-                        type="submit"
-                        value="Submit answer"
-                     >
-                        Submit answer
-                     </button>
+                           Submit answer
+                        </button>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-      </>
-   );
+         </>
+      );
+   }
 }
