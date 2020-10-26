@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
-import DisplayQuestions from "../ui/DisplayQuestions";
-
+import toDisplayDate from "date-fns/format";
+import questions from "../../mock-data/questions";
 export default function Landing() {
    return (
       <>
@@ -35,7 +35,25 @@ export default function Landing() {
                         Submit a new question
                      </Link>
                   </div>
-                  <DisplayQuestions />
+                  {questions.map((question) => {
+                     return (
+                        <div key={question.id}>
+                           <div className="lead mt-6 mb-1">
+                              <Link to="question">{question.text}</Link>
+                           </div>
+                           <p className="text-muted asked-on-answers-num float-left mb-4">
+                              Asked on{" "}
+                              {toDisplayDate(question.createdAt, "MMM. d, y")}.
+                           </p>
+                           <p className="text-muted asked-on-answers-num float-right">
+                              {question.answers.length} answers
+                           </p>
+                           <hr className="mt-8 mb-n3" />
+
+                           <div className="clearfix mb-4"></div>
+                        </div>
+                     );
+                  })}
                </div>
             </div>
          </div>
