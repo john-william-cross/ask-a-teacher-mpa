@@ -13,7 +13,11 @@ export default class Question extends React.Component {
    constructor(props) {
       super(props);
       console.log(`in the questions component`);
-      this.state = "";
+      this.state = { answerInput: "" };
+   }
+
+   setAnswerInput(e) {
+      this.setState({ answerInput: e.target.value });
    }
    render() {
       return (
@@ -43,15 +47,15 @@ export default class Question extends React.Component {
                            id="answer-input"
                            rows="10"
                            defaultValue=""
+                           onChange={(e) => this.setAnswerInput(e)}
                         ></textarea>
                         <p className="float-right lead mt-0 text-muted">
                            <span
                               className="text-danger"
                               id="answer-input-char-count"
                            >
-                              0
+                              {this.state.answerInput.length}/2000
                            </span>
-                           /2000
                         </p>
                         <button
                            className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
