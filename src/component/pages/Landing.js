@@ -71,20 +71,21 @@ export default class Landing extends React.Component {
                         }}
                         style={{ width: "100%" }}
                      ></textarea>
-                     <div className=" text-center ">
-                        <p className="mt-6">
-                           Don't see what you're looking for?
-                        </p>
 
-                        <Link
-                           to="submit-question"
-                           className="submit-new-question  mt-1"
-                        >
-                           Submit a new question
-                        </Link>
-                     </div>
                      {this.state.searchInput && ( //if this.state.searchInput evaluates to true (a blank string evaluates to false, so on page load this.state.searchInput is false. It is true once a char is entered), If it's true, run the second half
                         <div>
+                           <div className="text-center ">
+                              <p className="mt-6">
+                                 Don't see what you're looking for?
+                              </p>
+
+                              <Link
+                                 to="submit-question"
+                                 className="submit-new-question  mt-1"
+                              >
+                                 Submit a new question
+                              </Link>
+                           </div>
                            {this.state.displayedQuestions.map((question) => {
                               //map over each question in displayedQuestions
                               return (
