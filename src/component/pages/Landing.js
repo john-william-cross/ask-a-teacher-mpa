@@ -3,12 +3,14 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import toDisplayDate from "date-fns/format";
 import questions from "../../mock-data/questions";
+import classnames from "classnames";
 
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
 
       this.state = {
+         //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
          displayedQuestions: questions,
          searchInput: "",
          allQuestions: questions,
@@ -18,18 +20,27 @@ export default class Landing extends React.Component {
    setSearchInput(e) {
       const searchInput = e.target.value; // get that value, store in searchInput
       console.log(searchInput);
-      console.log(`you pushed a key!`);
+
       this.setState((prevState) => {
+         //prevSte isn't used but without it code breaks...
          return {
-            searchInput: searchInput, //we update search input
+            searchInput: searchInput, //we update search input to what was entered
             displayedQuestions: this.state.allQuestions.filter((question) => {
+               //allQuestions is filtered
                const lowerCasedInput = searchInput.toLowerCase();
                const questionText = question.text.toLowerCase();
 
-               return questionText.includes(lowerCasedInput);
+               return questionText.includes(lowerCasedInput); //only questions with text that includes the searchInput.toLowerCase() is returned
             }),
          };
       });
+   }
+
+   displayResults(e) {
+      const searchInput = e.target.value;
+      if (searchInput > 0) {
+         console.log(`inside displayResults function`);
+      }
    }
 
    render() {
@@ -45,20 +56,17 @@ export default class Landing extends React.Component {
                      >
                         Ask a teacher
                      </p>
-
                      <textarea
                         className="form-control mt-7"
                         id="question-input-home-page"
                         rows="2"
                         autoFocus
-                        value={this.state.searchInput}
+                        value={this.state.searchInput} //set value of text area to empty string as declared above
                         onChange={(e) => {
-                           this.setSearchInput(e);
-                           // document.getElementById("questions")
+                           this.setSearchInput(e); //when something is entered into input, setSearchInput is run based on the text entered
                         }}
                         style={{ width: "100%" }}
                      ></textarea>
-
                      <div className=" text-center ">
                         <p className="mt-6">
                            Don't see what you're looking for?
@@ -71,30 +79,45 @@ export default class Landing extends React.Component {
                            Submit a new question
                         </Link>
                      </div>
+                     {/* everything display none. if length of input greater than 0, display. if not, display none */}
 
-                     {this.state.displayedQuestions.map((question) => {
-                        return (
-                           <div key={question.id}>
-                              <div className="lead mt-6 mb-1" id="questions">
-                                 <Link to="question">{question.text}</Link>
+                     {/* 
+                    
+
+                    if (searchInput > 0) {
+                       remove className"d-none" from div with id="displayed-results"
+                    } else keep "d-none" there
+                    
+                    */}
+                     {/* <div>{this.displayResults}</div> */}
+                     <div id="displayed-results" className="d-none">
+                        {this.state.displayedQuestions.map((question) => {
+                           //map over each question in displayedQuestions
+                           return (
+                              <div key={question.id}>
+                                 <div className="lead mt-6 mb-1" id="questions">
+                                    <Link to="question">{question.text}</Link>
+                                    {/* //display question text as a link */}
+                                 </div>
+                                 <p className="text-muted asked-on-answers-num float-left mb-4">
+                                    Asked on{" "}
+                                    {toDisplayDate(
+                                       //display when question was asked
+                                       question.createdAt,
+                                       "MMM. d, y"
+                                    )}
+                                    .
+                                 </p>
+                                 <p className="text-muted asked-on-answers-num float-right">
+                                    {question.answers.length} answers
+                                 </p>
+                                 <hr className="mt-8 mb-n3" />
+
+                                 <div className="clearfix mb-4"></div>
                               </div>
-                              <p className="text-muted asked-on-answers-num float-left mb-4">
-                                 Asked on{" "}
-                                 {toDisplayDate(
-                                    question.createdAt,
-                                    "MMM. d, y"
-                                 )}
-                                 .
-                              </p>
-                              <p className="text-muted asked-on-answers-num float-right">
-                                 {question.answers.length} answers
-                              </p>
-                              <hr className="mt-8 mb-n3" />
-
-                              <div className="clearfix mb-4"></div>
-                           </div>
-                        );
-                     })}
+                           );
+                        })}{" "}
+                     </div>
                   </div>
                </div>
             </div>
