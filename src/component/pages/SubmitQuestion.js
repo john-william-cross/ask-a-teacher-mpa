@@ -109,6 +109,7 @@ class SubmitQuestion extends React.Component {
                      ></p>
 
                      <div className="mt-6 text-center col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                        {/* Do we need this to be a link? How can we make it work so email error fires if it's a link?  */}
                         <button
                            to="/"
                            className={classnames(
