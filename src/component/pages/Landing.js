@@ -3,7 +3,6 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import toDisplayDate from "date-fns/format";
 import questions from "../../mock-data/questions";
-import classnames from "classnames";
 
 export default class Landing extends React.Component {
    constructor(props) {
@@ -84,40 +83,41 @@ export default class Landing extends React.Component {
                            Submit a new question
                         </Link>
                      </div>
+                     {this.state.searchInput && ( //if this.state.searchInput evaluates to true (a blank string evaluates to false, so on page load this.state.searchInput is false. It is true once a char is entered), If it's true, run the second half
+                        <div>
+                           {this.state.displayedQuestions.map((question) => {
+                              //map over each question in displayedQuestions
+                              return (
+                                 <div key={question.id}>
+                                    <div
+                                       className="lead mt-6 mb-1"
+                                       id="questions"
+                                    >
+                                       <Link to="question">
+                                          {question.text}
+                                       </Link>
+                                       {/* //display question text as a link */}
+                                    </div>
+                                    <p className="text-muted asked-on-answers-num float-left mb-4">
+                                       Asked on{" "}
+                                       {toDisplayDate(
+                                          //display when question was asked
+                                          question.createdAt,
+                                          "MMM. d, y"
+                                       )}
+                                       .
+                                    </p>
+                                    <p className="text-muted asked-on-answers-num float-right">
+                                       {question.answers.length} answers
+                                    </p>
+                                    <hr className="mt-8 mb-n3" />
 
-                     <div
-                        id="displayed-results"
-                        className={classnames({
-                           "d-none": this.state.searchInput.length === 0,
-                        })}
-                     >
-                        {this.state.displayedQuestions.map((question) => {
-                           //map over each question in displayedQuestions
-                           return (
-                              <div key={question.id}>
-                                 <div className="lead mt-6 mb-1" id="questions">
-                                    <Link to="question">{question.text}</Link>
-                                    {/* //display question text as a link */}
+                                    <div className="clearfix mb-4"></div>
                                  </div>
-                                 <p className="text-muted asked-on-answers-num float-left mb-4">
-                                    Asked on{" "}
-                                    {toDisplayDate(
-                                       //display when question was asked
-                                       question.createdAt,
-                                       "MMM. d, y"
-                                    )}
-                                    .
-                                 </p>
-                                 <p className="text-muted asked-on-answers-num float-right">
-                                    {question.answers.length} answers
-                                 </p>
-                                 <hr className="mt-8 mb-n3" />
-
-                                 <div className="clearfix mb-4"></div>
-                              </div>
-                           );
-                        })}{" "}
-                     </div>
+                              );
+                           })}{" "}
+                        </div>
+                     )}
                   </div>
                </div>
             </div>
