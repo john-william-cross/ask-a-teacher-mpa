@@ -4,6 +4,8 @@ import {
    checkQuestionIsOver,
    QUESTION_MAX_CARD_CHARS,
 } from "../../utils/helpers";
+import { Link } from "react-router-dom";
+
 import classnames from "classnames";
 import { withRouter } from "react-router-dom";
 
@@ -20,6 +22,15 @@ class SubmitQuestion extends React.Component {
    }
    setQuestionInput(e) {
       this.setState({ questionInput: e.target.value });
+   }
+
+   checkQuestionIsOver() {
+      if (
+         this.state.questionInput.length > QUESTION_MAX_CARD_CHARS ||
+         this.state.questionInput.length === 0
+      ) {
+         return true;
+      } else return false;
    }
 
    setEmailState() {
@@ -44,7 +55,6 @@ class SubmitQuestion extends React.Component {
          });
       } else {
          this.setState({ emailError: "", hasEmailError: false });
-         this.props.history.push("/");
       }
    }
 
@@ -100,7 +110,11 @@ class SubmitQuestion extends React.Component {
 
                      <div className="mt-6 text-center col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                         <button
-                           className="logo-text-font submit-question-button btn btn-lg btn-outline-secondary mb-8"
+                           to="/"
+                           className={classnames(
+                              "logo-text-font submit-question-button btn btn-lg btn-outline-secondary mb-8",
+                              { disabled: this.checkQuestionIsOver() }
+                           )}
                            id="ask-a-teacher-submit-button"
                            type="submit"
                            value="Ask a teacher"
