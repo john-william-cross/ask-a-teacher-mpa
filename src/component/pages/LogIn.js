@@ -4,8 +4,10 @@ import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
 //coinsdf
-export default class Login extends React.Component {
+class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
@@ -41,39 +43,19 @@ export default class Login extends React.Component {
       }
    }
 
-   checkHasLocalPart(passwordInput, emailInput) {
-      const localPart = emailInput.split("@")[0];
-      if (localPart === "") return false;
-      else if (localPart.length < 4) return false;
-      else return passwordInput.includes(localPart);
-   }
+   // checkHasLocalPart(passwordInput, emailInput) {
+   //    const localPart = emailInput.split("@")[0];
+   //    if (localPart === "") return false;
+   //    else if (localPart.length < 4) return false;
+   //    else return passwordInput.includes(localPart);
+   // }
 
-   async setPasswordState(passwordInput, emailInput) {
+   async setPasswordState(passwordInput) {
       console.log(passwordInput);
-
-      const uniqChars = [...new Set(passwordInput)];
-      console.log(uniqChars);
 
       if (passwordInput === "") {
          this.setState({
-            passwordError: "Please create a password.",
-            hasPasswordError: true,
-         });
-      } else if (passwordInput.length < 9) {
-         this.setState({
-            passwordError: "Your password must be at least 9 characters.",
-            hasPasswordError: true,
-         });
-      } else if (this.checkHasLocalPart(passwordInput, emailInput)) {
-         this.setState({
-            passwordError:
-               "For your safety, your password cannot contain your email address.",
-            hasPasswordError: true,
-         });
-      } else if (uniqChars.length < 3) {
-         this.setState({
-            passwordError:
-               "For your safety, your password must contain at least 3 unique characters.",
+            passwordError: "Please enter your password.",
             hasPasswordError: true,
          });
       } else {
@@ -98,6 +80,7 @@ export default class Login extends React.Component {
             createdAt: Date.now(),
          };
          console.log(user);
+         this.props.history.push("/questions");
       }
    }
 
@@ -167,3 +150,5 @@ export default class Login extends React.Component {
       );
    }
 }
+
+export default withRouter(LogIn);

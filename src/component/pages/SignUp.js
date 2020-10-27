@@ -3,9 +3,10 @@ import Header from "../ui/Header";
 import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
+import { withRouter } from "react-router-dom";
 
 //functions go in react classes
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
@@ -96,6 +97,7 @@ export default class SignUp extends React.Component {
             createdAt: Date.now(),
          };
          console.log(user);
+         this.props.history.push("/questions");
       }
    }
 
@@ -219,3 +221,5 @@ export default class SignUp extends React.Component {
       );
    }
 }
+
+export default withRouter(SignUp);
