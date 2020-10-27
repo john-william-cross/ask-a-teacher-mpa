@@ -36,12 +36,12 @@ export default class Landing extends React.Component {
       });
    }
 
-   displayResults(e) {
-      const searchInput = e.target.value;
-      if (searchInput > 0) {
-         console.log(`inside displayResults function`);
-      }
-   }
+   // displayResults(e) {
+   //    const searchInput = e.target.value;
+   //    if (searchInput > 0) {
+   //       console.log(`inside displayResults function`);
+   //    }
+   // }
 
    render() {
       return (
@@ -80,7 +80,6 @@ export default class Landing extends React.Component {
                         </Link>
                      </div>
                      {/* everything display none. if length of input greater than 0, display. if not, display none */}
-
                      {/* 
                     
 
@@ -90,37 +89,37 @@ export default class Landing extends React.Component {
                     
                     */}
                      {/* <div>{this.displayResults}</div> */}
-                     <div id="displayed-results" className="d-none">
-                        {this.state.displayedQuestions.map((question) => {
-                           //map over each question in displayedQuestions
-                           return (
-                              <div key={question.id}>
-                                 <div className="lead mt-6 mb-1" id="questions">
-                                    <Link to="question">{question.text}</Link>
-                                    {/* //display question text as a link */}
-                                 </div>
-                                 <p className="text-muted asked-on-answers-num float-left mb-4">
-                                    Asked on{" "}
-                                    {toDisplayDate(
-                                       //display when question was asked
-                                       question.createdAt,
-                                       "MMM. d, y"
-                                    )}
-                                    .
-                                 </p>
-                                 <p className="text-muted asked-on-answers-num float-right">
-                                    {question.answers.length} answers
-                                 </p>
-                                 <hr className="mt-8 mb-n3" />
-
-                                 <div className="clearfix mb-4"></div>
+                     {/* <div id="displayed-results" className="d-none"> */}
+                     {this.state.displayedQuestions.map((question) => {
+                        //map over each question in displayedQuestions
+                        return (
+                           <div key={question.id}>
+                              <div className="lead mt-6 mb-1" id="questions">
+                                 <Link to="question">{question.text}</Link>
+                                 {/* //display question text as a link */}
                               </div>
-                           );
-                        })}{" "}
-                     </div>
+                              <p className="text-muted asked-on-answers-num float-left mb-4">
+                                 Asked on{" "}
+                                 {toDisplayDate(
+                                    //display when question was asked
+                                    question.createdAt,
+                                    "MMM. d, y"
+                                 )}
+                                 .
+                              </p>
+                              <p className="text-muted asked-on-answers-num float-right">
+                                 {question.answers.length} answers
+                              </p>
+                              <hr className="mt-8 mb-n3" />
+
+                              <div className="clearfix mb-4"></div>
+                           </div>
+                        );
+                     })}{" "}
                   </div>
                </div>
             </div>
+            {/* </div> */}
          </>
       );
    }
