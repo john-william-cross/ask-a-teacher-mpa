@@ -5,8 +5,9 @@ import {
    QUESTION_MAX_CARD_CHARS,
 } from "../../utils/helpers";
 import classnames from "classnames";
+import { withRouter } from "react-router-dom";
 
-export default class SubmitQuestion extends React.Component {
+class SubmitQuestion extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
@@ -43,7 +44,7 @@ export default class SubmitQuestion extends React.Component {
          });
       } else {
          this.setState({ emailError: "", hasEmailError: false });
-         console.log(`hi`);
+         this.props.history.push("/");
       }
    }
 
@@ -117,3 +118,4 @@ export default class SubmitQuestion extends React.Component {
       );
    }
 }
+export default withRouter(SubmitQuestion);

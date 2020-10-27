@@ -5,17 +5,27 @@ import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
 import classnames from "classnames";
+import { withRouter } from "react-router-dom";
 
 import Answers from "../ui/Answers";
 const question = questions[0];
 const answers = question.answers;
 const createdAtDate = question.createdAt;
 
-export default class Question extends React.Component {
+class Question extends React.Component {
    constructor(props) {
       super(props);
       console.log(`in the questions component`);
       this.state = { answerInput: "" };
+   }
+
+   checkAnswerIsOver() {
+      if (
+         this.state.answerInput.length > ANSWER_MAX_CARD_CHARS ||
+         this.state.answerInput.length === 0
+      ) {
+         return true;
+      } else return false;
    }
 
    setAnswerInput(e) {
@@ -64,15 +74,18 @@ export default class Question extends React.Component {
                               {ANSWER_MAX_CARD_CHARS}
                            </span>
                         </p>
-                        <button //where to submit to?
-                           className="mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary"
+                        <Link
+                           to="/questions"
+                           className={classnames(
+                              "mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
+                              { disabled: this.checkAnswerIsOver() }
+                           )}
                            id="submit-answer"
-                           // disabled
                            type="submit"
                            value="Submit answer"
                         >
                            Submit answer
-                        </button>
+                        </Link>
                      </div>
                   </div>
                </div>
@@ -81,3 +94,5 @@ export default class Question extends React.Component {
       );
    }
 }
+
+export default withRouter(Question);
