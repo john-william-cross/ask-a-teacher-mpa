@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../ui/Header";
-
 import {
    checkQuestionIsOver,
    QUESTION_MAX_CARD_CHARS,
@@ -26,9 +25,7 @@ export default class SubmitQuestion extends React.Component {
       console.log(`validate me`);
       const emailInput = document.getElementById("questioner-email-input")
          .value;
-      console.log(emailInput);
       const lowerCasedEmailInput = emailInput.toLowerCase();
-      console.log(lowerCasedEmailInput);
 
       // eslint-disable-next-line
       const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,6 +43,7 @@ export default class SubmitQuestion extends React.Component {
          });
       } else {
          this.setState({ emailError: "", hasEmailError: false });
+         console.log(`hi`);
       }
    }
 
@@ -104,7 +102,6 @@ export default class SubmitQuestion extends React.Component {
                            className="logo-text-font submit-question-button btn btn-lg btn-outline-secondary mb-8"
                            id="ask-a-teacher-submit-button"
                            type="submit"
-                           // disabled
                            value="Ask a teacher"
                            onClick={() => {
                               this.setEmailState();
