@@ -3,10 +3,21 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import toDisplayDate from "date-fns/format";
 import questions from "../../mock-data/questions";
+import axios from "axios";
 
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
+      axios
+         .get("https://run.mocky.io/v3/c347e1cc-69ab-437c-b395-232874461c40")
+         .then(function (response) {
+            // handle success
+            console.log(response);
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
 
       this.state = {
          //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
