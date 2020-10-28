@@ -4,13 +4,13 @@
       "email": "john@gmail.com",
       "homeState": "Iowa",
       "password": "johjohjoh",
-      "createdAt": 1603203249
+      "createdAt": 1583781823000
    },
    {
       "id": "5d127345-c95d-42c3-bd84-faccfe2e0004",
       "email": "mike@gmail.com",
       "homeState": "Nevada",
       "password": "mikmikmik",
-      "createdAt": 1603203264
+      "createdAt": 1577120579000
    }
 ]
