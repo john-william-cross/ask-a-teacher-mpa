@@ -17,3 +17,5 @@ export default function Answer(props) {
       </>
    );
 }
+
+// all components must render jsx

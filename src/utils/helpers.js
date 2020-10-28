@@ -15,3 +15,5 @@ function checkQuestionIsOver(str, num) {
 const QUESTION_MAX_CARD_CHARS = 500;
 
 export { checkQuestionIsOver, QUESTION_MAX_CARD_CHARS };
+
+//technically you could put something like setEmailState here
