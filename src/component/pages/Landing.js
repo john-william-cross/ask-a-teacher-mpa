@@ -9,7 +9,9 @@ export default class Landing extends React.Component {
    constructor(props) {
       super(props);
       axios
-         .get("https://run.mocky.io/v3/c347e1cc-69ab-437c-b395-232874461c40")
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+         )
          .then(function (response) {
             // handle success
             console.log(response);
