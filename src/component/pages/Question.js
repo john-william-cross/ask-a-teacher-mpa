@@ -7,7 +7,7 @@ import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
 import classnames from "classnames";
 import { withRouter } from "react-router-dom";
 
-import Answers from "../ui/Answers";
+import Answer from "../ui/Answer";
 const question = questions[0];
 const answers = question.answers;
 const createdAtDate = question.createdAt;
@@ -50,7 +50,18 @@ class Question extends React.Component {
                            {answers.length} answers
                         </p>
 
-                        <Answers />
+                        <div className="clearfix mb-4"></div>
+                        <div
+                           className="answers"
+                           style={{ textAlign: "justify" }}
+                        >
+                           {answers.map((answer) => {
+                              // console.log(answer);
+                              return <Answer answer={answer} key={answer.id} />;
+                           })}
+                        </div>
+
+                        <div className=" mb-4"></div>
 
                         <div className="clearfix mb-7"></div>
                         <p className="lead mt-1">Your answer</p>

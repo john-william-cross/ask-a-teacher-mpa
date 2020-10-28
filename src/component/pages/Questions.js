@@ -2,8 +2,7 @@ import React from "react";
 import Header from "../ui/Header";
 import orderBy from "lodash/orderBy";
 import questions from "../../mock-data/questions";
-import toDisplayDate from "date-fns/format";
-import { Link } from "react-router-dom";
+import DisplayQuestions from "../ui/DisplayQuestions";
 
 export default class Questions extends React.Component {
    constructor(props) {
@@ -66,25 +65,10 @@ export default class Questions extends React.Component {
 
                         {this.state.displayedQuestions.map((question) => {
                            return (
-                              <div key={question.id}>
-                                 <div className="lead mt-6 mb-1">
-                                    <Link to="question">{question.text}</Link>
-                                 </div>
-                                 <p className="text-muted asked-on-answers-num float-left mb-4">
-                                    Asked on{" "}
-                                    {toDisplayDate(
-                                       question.createdAt,
-                                       "MMM. d, y"
-                                    )}
-                                    .
-                                 </p>
-                                 <p className="text-muted asked-on-answers-num float-right">
-                                    {question.answers.length} answers
-                                 </p>
-                                 <hr className="mt-8 mb-n3" />
-
-                                 <div className="clearfix mb-4"></div>
-                              </div>
+                              <DisplayQuestions
+                                 question={question}
+                                 key={question.id}
+                              />
                            );
                         })}
 

@@ -6,7 +6,6 @@ import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
-//coinsdf
 class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
