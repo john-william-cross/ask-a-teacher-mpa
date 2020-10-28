@@ -3,23 +3,23 @@ import Header from "../ui/Header";
 import orderBy from "lodash/orderBy";
 import questions from "../../mock-data/questions";
 import QuestionPreview from "../ui/QuestionPreview";
-import axios from "axios";
+// import axios from "axios";
 
 export default class Questions extends React.Component {
    constructor(props) {
       super(props);
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
-         )
-         .then(function (response) {
-            // handle success
-            console.log(response);
-         })
-         .catch(function (error) {
-            // handle error
-            console.log(error);
-         });
+      // axios
+      //    .get(
+      //       "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+      //    )
+      //    .then(function (response) {
+      //       // handle success
+      //       console.log(response);
+      //    })
+      //    .catch(function (error) {
+      //       // handle error
+      //       console.log(error);
+      //    });
       this.state = {
          order: `[["createdAt"], ["desc"]]`,
          displayedQuestions: orderBy(questions, '[["totalAnswers"], ["asc"]]'),

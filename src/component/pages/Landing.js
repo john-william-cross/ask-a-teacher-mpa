@@ -21,6 +21,13 @@ export default class Landing extends React.Component {
             console.log(error);
          });
 
+      /*
+What do I want react to have access to?
+user: {}
+questions: []
+
+*/
+
       this.state = {
          //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
          displayedQuestions: questions,
