@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
-import toDisplayDate from "date-fns/format";
 import questions from "../../mock-data/questions";
 import axios from "axios";
+import QuestionPreview from "../ui/QuestionPreview";
 
 export default class Landing extends React.Component {
    constructor(props) {
@@ -102,32 +102,10 @@ export default class Landing extends React.Component {
                            {this.state.displayedQuestions.map((question) => {
                               //map over each question in displayedQuestions
                               return (
-                                 <div key={question.id}>
-                                    <div
-                                       className="lead mt-6 mb-1"
-                                       id="questions"
-                                    >
-                                       <Link to="question">
-                                          {question.text}
-                                       </Link>
-                                       {/* //display question text as a link */}
-                                    </div>
-                                    <p className="text-muted asked-on-answers-num float-left mb-4">
-                                       Asked on{" "}
-                                       {toDisplayDate(
-                                          //display when question was asked
-                                          question.createdAt,
-                                          "MMM. d, y"
-                                       )}
-                                       .
-                                    </p>
-                                    <p className="text-muted asked-on-answers-num float-right">
-                                       {question.answers.length} answers
-                                    </p>
-                                    <hr className="mt-8 mb-n3" />
-
-                                    <div className="clearfix mb-4"></div>
-                                 </div>
+                                 <QuestionPreview
+                                    question={question}
+                                    key={question.id}
+                                 />
                               );
                            })}{" "}
                         </div>

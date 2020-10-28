@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../ui/Header";
 import orderBy from "lodash/orderBy";
 import questions from "../../mock-data/questions";
-import DisplayQuestions from "../ui/DisplayQuestions";
+import QuestionPreview from "../ui/QuestionPreview";
 
 export default class Questions extends React.Component {
    constructor(props) {
@@ -65,7 +65,7 @@ export default class Questions extends React.Component {
 
                         {this.state.displayedQuestions.map((question) => {
                            return (
-                              <DisplayQuestions
+                              <QuestionPreview
                                  question={question}
                                  key={question.id}
                               />

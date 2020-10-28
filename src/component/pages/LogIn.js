@@ -42,13 +42,6 @@ class LogIn extends React.Component {
       }
    }
 
-   // checkHasLocalPart(passwordInput, emailInput) {
-   //    const localPart = emailInput.split("@")[0];
-   //    if (localPart === "") return false;
-   //    else if (localPart.length < 4) return false;
-   //    else return passwordInput.includes(localPart);
-   // }
-
    async setPasswordState(passwordInput) {
       console.log(passwordInput);
 
