@@ -6,8 +6,9 @@ import toDisplayDate from "date-fns/format";
 import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
 import classnames from "classnames";
 import { withRouter } from "react-router-dom";
-
+import axios from "axios";
 import Answer from "../ui/Answer";
+
 const question = questions[0];
 const answers = question.answers;
 const createdAtDate = question.createdAt;
@@ -15,6 +16,18 @@ const createdAtDate = question.createdAt;
 class Question extends React.Component {
    constructor(props) {
       super(props);
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+         )
+         .then(function (response) {
+            // handle success
+            console.log(response);
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
       console.log(`in the questions component`);
       this.state = { answerInput: "" };
    }

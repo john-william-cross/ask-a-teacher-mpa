@@ -4,7 +4,6 @@ import {
    checkQuestionIsOver,
    QUESTION_MAX_CARD_CHARS,
 } from "../../utils/helpers";
-
 import classnames from "classnames";
 import { withRouter } from "react-router-dom";
 
