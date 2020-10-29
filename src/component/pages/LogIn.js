@@ -15,7 +15,7 @@ class LogIn extends React.Component {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/6a94daa6bf3fcf3e0aeeca5a6b7c87eb9ccb7410/src/mock-data/currentUser.json" //rewrite so it only returns one user, which should be currentUser.json
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/6a94daa6bf3fcf3e0aeeca5a6b7c87eb9ccb7410/src/mock-data/currentUser.json"
          )
          .then(function (res) {
             // handle success
@@ -85,7 +85,7 @@ class LogIn extends React.Component {
          this.state.hasEmailError === false &&
          this.state.hasPasswordError === false
       ) {
-         this.props.dispatch({ type: actions.STORE_CURRENT_USER }); //ok to put this into validateUser function?
+         // this.props.dispatch({ type: actions.STORE_CURRENT_USER }); //ok to put this into validateUser function?
          const user = {
             id: getUuid(),
             email: emailInput,
@@ -174,3 +174,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(LogIn);
+// a curryable function is simply a function that takes every argument by itself, then returns a new function that expects the next dependency to the function until all the dependencies have been fulfilled and the final value is returned.

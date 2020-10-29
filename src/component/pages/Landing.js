@@ -8,6 +8,8 @@ export default class Landing extends React.Component {
    constructor(props) {
       super(props);
 
+      //replace questions from mock data with an api call
+
       /*
 What do I want react to have access to?
 user: {}
