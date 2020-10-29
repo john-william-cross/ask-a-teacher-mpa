@@ -2,24 +2,24 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
-// import axios from "axios";
+import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
 
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
-      // axios
-      //    .get(
-      //       "https://github.com/john-william-cross/ask-a-teacher-mpa/blob/b5256f561886f9ef380009720553587a09d05bfc/src/mock-data/users.json"
-      //    )
-      //    .then(function (response) {
-      //       // handle success
-      //       console.log(response);
-      //    })
-      //    .catch(function (error) {
-      //       // handle error
-      //       console.log(error);
-      //    });
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
+         )
+         .then(function (response) {
+            // handle success
+            console.log(response);
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
 
       /*
 What do I want react to have access to?

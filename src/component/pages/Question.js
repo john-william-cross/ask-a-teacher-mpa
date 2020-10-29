@@ -14,23 +14,23 @@ const answers = question.answers;
 const createdAtDate = question.createdAt;
 
 class Question extends React.Component {
-   // constructor(props) {
-   //    super(props);
-   //    // axios
-   //    //    .get(
-   //    //       "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
-   //    //    )
-   //    //    .then(function (response) {
-   //    //       // handle success
-   //    //       console.log(response);
-   //    //    })
-   //    //    .catch(function (error) {
-   //    //       // handle error
-   //    //       console.log(error);
-   //    //    });
-   //    // console.log(`in the questions component`);
-   //    // this.state = { answerInput: "" };
-   // }
+   constructor(props) {
+      super(props);
+      // axios
+      //    .get(
+      //       "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+      //    )
+      //    .then(function (response) {
+      //       // handle success
+      //       console.log(response);
+      //    })
+      //    .catch(function (error) {
+      //       // handle error
+      //       console.log(error);
+      //    });
+      // console.log(`in the questions component`);
+      this.state = { answerInput: "" };
+   }
 
    checkAnswerIsOver() {
       if (
@@ -85,6 +85,7 @@ class Question extends React.Component {
                            defaultValue=""
                            onChange={(e) => this.setAnswerInput(e)}
                         ></textarea>
+
                         <p className="float-right lead mt-0 text-muted">
                            <span
                               className={classnames({
