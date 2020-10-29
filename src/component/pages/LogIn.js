@@ -15,7 +15,7 @@ class LogIn extends React.Component {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/6a94daa6bf3fcf3e0aeeca5a6b7c87eb9ccb7410/src/mock-data/currentUser.json"
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/currentUser.json"
          )
          .then(function (res) {
             // handle success
