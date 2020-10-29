@@ -169,6 +169,7 @@ function mapStateToProps() {
    //return whatever we wanted to pass from the global state
    //into the properties
    // return {currentUser: };
+   // wouldn't I need index of currentUser? That's not one of your reducers. If not, why not?
 }
 
 export default connect(mapStateToProps)(LogIn);
