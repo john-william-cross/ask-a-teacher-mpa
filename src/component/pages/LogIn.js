@@ -15,7 +15,7 @@ class LogIn extends React.Component {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json" //rewrite so it only returns one user, which should be currentUser.json
          )
          .then(function (res) {
             // handle success
