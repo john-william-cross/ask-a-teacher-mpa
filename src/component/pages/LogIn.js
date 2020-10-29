@@ -15,7 +15,7 @@ class LogIn extends React.Component {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/e175f65736e0d48036a5ee2bbecda1a83501a66d/src/mock-data/currentUser.json" //rewrite so it only returns one user, which should be currentUser.json
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/6a94daa6bf3fcf3e0aeeca5a6b7c87eb9ccb7410/src/mock-data/currentUser.json" //rewrite so it only returns one user, which should be currentUser.json
          )
          .then(function (res) {
             // handle success
@@ -85,7 +85,7 @@ class LogIn extends React.Component {
          this.state.hasEmailError === false &&
          this.state.hasPasswordError === false
       ) {
-         this.props.dispatch({ type: actions.STORE_CURRENT_USER });
+         this.props.dispatch({ type: actions.STORE_CURRENT_USER }); //ok to put this into validateUser function?
          const user = {
             id: getUuid(),
             email: emailInput,
