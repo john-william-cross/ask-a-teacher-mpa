@@ -85,7 +85,6 @@ class LogIn extends React.Component {
          this.state.hasEmailError === false &&
          this.state.hasPasswordError === false
       ) {
-         // this.props.dispatch({ type: actions.STORE_CURRENT_USER }); //ok to put this into validateUser function?
          const user = {
             id: getUuid(),
             email: emailInput,
