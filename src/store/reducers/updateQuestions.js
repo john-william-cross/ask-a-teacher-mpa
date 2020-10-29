@@ -2,11 +2,11 @@
 //based on the action, it creates a new state
 import actions from "../actions";
 
-export default function currentUser(state = {}, action) {
+export default function updateQuestions(state = [], action) {
    //action has two things associated with it: action.payload and action.type
    switch (action.type) {
-      case actions.STORE_CURRENT_USER:
-         return {};
+      case actions.UPDATE_QUESTIONS:
+         return action.payload;
       default:
          return state;
    }
