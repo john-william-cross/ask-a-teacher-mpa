@@ -168,7 +168,7 @@ class LogIn extends React.Component {
 function mapStateToProps() {
    //return whatever we wanted to pass from the global state
    //into the properties
-   return {};
+   // return {currentUser: };
 }
 
 export default connect(mapStateToProps)(LogIn);
