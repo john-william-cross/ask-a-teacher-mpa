@@ -12,7 +12,7 @@ export default class Landing extends React.Component {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+            "https://github.com/john-william-cross/ask-a-teacher-mpa/blob/b5256f561886f9ef380009720553587a09d05bfc/src/mock-data/users.json"
          )
          .then(function (response) {
             // handle success
