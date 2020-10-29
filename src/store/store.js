@@ -7,6 +7,6 @@ const initialState = {
    allQuestions: [],
 };
 
-const store = createStore(combineReducers, initialState, composeWithDevTools);
+const store = createStore(combineReducers, initialState, composeWithDevTools());
 
 export default store;
