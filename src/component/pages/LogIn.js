@@ -5,11 +5,31 @@ import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import actions from "../../store/actions";
+import axios from "axios";
 
 class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
+         )
+         .then(function (res) {
+            // handle success
+            console.log(res);
+            props.dispatch({
+               type: actions.STORE_CURRENT_USER,
+               payload: res.data,
+            });
+            //props.dispatch() dispatches an action
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
       console.log("In a new class component!");
       this.state = {
          emailError: "",
@@ -143,4 +163,12 @@ class LogIn extends React.Component {
    }
 }
 
-export default withRouter(LogIn);
+// export default withRouter(LogIn);
+
+function mapStateToProps() {
+   //return whatever we wanted to pass from the global state
+   //into the properties
+   return {};
+}
+
+export default connect(mapStateToProps)(LogIn);

@@ -2,25 +2,11 @@ import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
-import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
-import { connect } from "react-redux";
 
-class Landing extends React.Component {
+export default class Landing extends React.Component {
    constructor(props) {
       super(props);
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
-         )
-         .then(function (response) {
-            // handle success
-            console.log(response);
-         })
-         .catch(function (error) {
-            // handle error
-            console.log(error);
-         });
 
       /*
 What do I want react to have access to?
@@ -126,4 +112,10 @@ questions: []
    }
 }
 
-export default connect()(Landing);
+// function mapStateToProps() {
+//    //return whatever we wanted to pass from the global state
+//    //into the properties
+//    return {};
+// }
+
+// export default connect(mapStateToProps)(Landing);

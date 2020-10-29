@@ -6,7 +6,7 @@ export default function currentUser(state = {}, action) {
    //action has two things associated with it: action.payload and action.type
    switch (action.type) {
       case actions.STORE_CURRENT_USER:
-         return {};
+         return action.payload;
       default:
          return state;
    }
