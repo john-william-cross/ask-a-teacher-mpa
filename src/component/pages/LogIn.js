@@ -4,7 +4,7 @@ import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
 import axios from "axios";
@@ -15,7 +15,7 @@ class LogIn extends React.Component {
       super(props);
       axios
          .get(
-            "https://github.com/john-william-cross/ask-a-teacher-mpa/blob/63a7c06d45373a0cd66b7ccb4f5dd20b5107312c/src/mock-data/currentUser.json" //rewrite so it only returns one user, which should be currentUser.json
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/e175f65736e0d48036a5ee2bbecda1a83501a66d/src/mock-data/currentUser.json" //rewrite so it only returns one user, which should be currentUser.json
          )
          .then(function (res) {
             // handle success
@@ -30,7 +30,7 @@ class LogIn extends React.Component {
             // handle error
             console.log(error);
          });
-      console.log("In a new class component!");
+      // console.log("In a new class component!");
       this.state = {
          emailError: "",
          passwordError: "",
@@ -85,6 +85,7 @@ class LogIn extends React.Component {
          this.state.hasEmailError === false &&
          this.state.hasPasswordError === false
       ) {
+         this.props.dispatch({ type: actions.STORE_CURRENT_USER });
          const user = {
             id: getUuid(),
             email: emailInput,
@@ -163,13 +164,13 @@ class LogIn extends React.Component {
    }
 }
 
-// export default withRouter(LogIn);
+// withRouter(LogIn);
 
-function mapStateToProps() {
+function mapStateToProps(state) {
+   //remember this is a global state, has nothing to do with local states above
    //return whatever we wanted to pass from the global state
    //into the properties
-   // return {currentUser: };
-   // wouldn't I need index of currentUser? That's not one of your reducers. If not, why not?
+   return { currentUser: state.currentUser };
 }
 
 export default connect(mapStateToProps)(LogIn);
