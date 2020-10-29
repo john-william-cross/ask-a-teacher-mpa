@@ -23,8 +23,8 @@ export default class Questions extends React.Component {
 
       /*
 allQuestions: [],
-indexOfCurrentQuestion: 0,
-user: {}
+indexOfCurrentQuestion: 0,   ?
+user: {}   is this user logged in, does user have access to this page? etc
 */
 
       this.state = {

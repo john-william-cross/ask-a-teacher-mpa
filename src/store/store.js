@@ -1,14 +1,12 @@
 import { createStore } from "redux";
-import { composedWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./store/reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+import combineReducers from "./combineReducers";
 
 const initialState = {
-   user: {
-      //
-   },
+   user: {},
    allQuestions: [],
 };
 
-const store = createStore(rootReducer, initialState, composedWithDevTools);
+const store = createStore(combineReducers, initialState, composeWithDevTools);
 
 export default store;

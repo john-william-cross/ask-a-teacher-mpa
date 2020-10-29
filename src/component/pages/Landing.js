@@ -5,8 +5,6 @@ import questions from "../../mock-data/questions";
 // import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
 
-//comment for commit
-
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
