@@ -4,17 +4,23 @@ import orderBy from "lodash/orderBy";
 import questions from "../../mock-data/questions";
 import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
+import { connect } from "react-redux";
+import actions from "../../store/actions";
 
-export default class Questions extends React.Component {
+class Questions extends React.Component {
    constructor(props) {
       super(props);
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
-         .then(function (response) {
+         .then(function (res) {
             // handle success
-            console.log(response);
+            console.log(res);
+            props.dispatch({
+               type: actions.STORE_ALL_QUESTIONS,
+               payload: res.data,
+            }); // remember we dispatch actions. dispatch takes a type and a payload
          })
          .catch(function (error) {
             // handle error
@@ -101,3 +107,11 @@ user: {}   is this user logged in, does user have access to this page? etc
       );
    }
 }
+
+//mapStateToProps says take this global state and map these certain things to properties within this local state
+function mapStateToProps() {
+   //return whatever we want to pass from the global state into the properties
+   return {};
+}
+
+export default connect(mapStateToProps)(Questions);
