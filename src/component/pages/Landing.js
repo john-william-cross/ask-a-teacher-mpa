@@ -11,6 +11,15 @@ class Landing extends React.Component {
    constructor(props) {
       super(props);
 
+      this.state = {
+         //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
+         displayedQuestions: questions,
+         searchInput: "",
+         allQuestions: questions,
+      };
+   }
+
+   componentDidMount(props) {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
@@ -21,25 +30,16 @@ class Landing extends React.Component {
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
+            });
+            // this.setState = {                     this causes crash when local state is removed from component
+            //    displayedQuestions: questions,
+            //    allQuestions: questions,
+            // };
          })
          .catch(function (error) {
             // handle error
             console.log(error);
          });
-
-      /*
-What do I want react to have access to?
-user: {}
-questions: []
-*/
-
-      this.state = {
-         //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
-         displayedQuestions: questions,
-         searchInput: "",
-         allQuestions: questions,
-      };
    }
 
    setIsDisplayingQuestions(e) {

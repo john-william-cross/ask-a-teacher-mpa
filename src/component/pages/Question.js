@@ -18,6 +18,11 @@ const createdAtDate = question.createdAt;
 class Question extends React.Component {
    constructor(props) {
       super(props);
+
+      this.state = { answerInput: "" };
+   }
+
+   componentDidMount(props) {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
@@ -25,16 +30,15 @@ class Question extends React.Component {
          .then(function (res) {
             // handle success
             console.log(`here's the res`, res);
-            props.dispatch({
-               type: actions.STORE_ALL_QUESTIONS,
-               payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
+            // props.dispatch({
+            //    type: actions.STORE_ALL_QUESTIONS,
+            //    payload: res.data,
+            // }); // remember we dispatch actions. dispatch takes a type and a payload
          })
          .catch(function (error) {
             // handle error
             console.log(error);
          });
-      this.state = { answerInput: "" };
    }
 
    checkAnswerIsOver() {

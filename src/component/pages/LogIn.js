@@ -5,9 +5,9 @@ import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-// import axios from "axios";
-// import { connect } from "react-redux";
-// import actions from "../../store/actions";
+import axios from "axios";
+import { connect } from "react-redux";
+import actions from "../../store/actions";
 class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
@@ -19,24 +19,26 @@ class LogIn extends React.Component {
          hasEmailError: false,
          hasPasswordError: false,
       };
-      // axios
-      //    .get(
-      //       "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
-      //    )
-      //    .then(function (res) {
-      //       // handle success
-      //       console.log(`currentUser: `, res);
-      //       props.dispatch({
-      //          type: actions.STORE_CURRENT_USER,
-      //          payload: res.data,
-      //       }); // remember we dispatch actions. dispatch takes a type and a payload
-      //    })
-      //    .catch(function (error) {
-      //       // handle error
-      //       console.log(error);
-      //    });
    }
 
+   componentDidMount(props) {
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
+         )
+         .then(function (res) {
+            // handle success
+            console.log(`currentUser: `, res);
+            props.dispatch({
+               type: actions.STORE_CURRENT_USER,
+               payload: res.data,
+            }); // this doesn't store user
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
+   }
    async setEmailState(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
@@ -161,10 +163,10 @@ class LogIn extends React.Component {
    }
 }
 
-export default withRouter(LogIn);
-// function mapStateToProps() {
-//    //return whatever we want to pass from the global state into the properties
-//    return {};
-// }
+// export default withRouter(LogIn);
+function mapStateToProps() {
+   //return whatever we want to pass from the global state into the properties
+   return {};
+}
 
-// export default connect(mapStateToProps)(Questions);
+export default connect(mapStateToProps)(LogIn);

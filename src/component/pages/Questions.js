@@ -5,7 +5,6 @@ import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
-
 class Questions extends React.Component {
    constructor(props) {
       super(props);
@@ -25,7 +24,7 @@ class Questions extends React.Component {
          .then((res) => {
             // handle success
             const questions = res.data;
-            console.log(questions);
+            console.log(`here are the questions: `, questions);
 
             this.setState({
                displayedQuestions: orderBy(
@@ -39,11 +38,15 @@ class Questions extends React.Component {
                   };
                }),
             });
-            console.log(`hit it`);
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: res.data,
             });
+
+            // props.dispatch({
+            //    type: actions.STORE_ALL_QUESTIONS,
+            //    payload: res.data,
+            // });
             // remember we dispatch actions. dispatch takes a type and a payload
          })
          .catch((error) => {
