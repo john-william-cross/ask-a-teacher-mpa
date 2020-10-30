@@ -8,20 +8,6 @@ import axios from "axios";
 export default class Questions extends React.Component {
    constructor(props) {
       super(props);
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
-         )
-         .then(function (response) {
-            // handle success
-            console.log(response);
-            //TODO: replace mock data with api call after 324A
-            //do this on landing page too.
-         })
-         .catch(function (error) {
-            // handle error
-            console.log(error);
-         });
 
       this.state = {
          order: `[["createdAt"], ["desc"]]`,
@@ -33,6 +19,23 @@ export default class Questions extends React.Component {
             };
          }),
       };
+   }
+
+   componentDidMount() {
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
+         )
+         .then((response) => {
+            // handle success
+            console.log(response);
+            //TODO: replace mock data with api call after 324A
+            //do this on landing page too.
+         })
+         .catch((error) => {
+            // handle error
+            console.log(error);
+         });
    }
 
    //REMEMBER THAT STATE IS ALWAYS AN OBJECT

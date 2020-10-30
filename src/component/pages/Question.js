@@ -20,11 +20,11 @@ class Question extends React.Component {
       //    .get(
       //       "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
       //    )
-      //    .then(function (response) {
+      //    .then((response) => {
       //       // handle success
       //       console.log(response);
       //    })
-      //    .catch(function (error) {
+      //    .catch((error) => {
       //       // handle error
       //       console.log(error);
       //    });

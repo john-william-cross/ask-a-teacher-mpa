@@ -13,23 +13,7 @@ class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/currentUser.json"
-         )
-         .then(function (res) {
-            // handle success
-            console.log(res);
-            props.dispatch({
-               type: actions.STORE_CURRENT_USER,
-               payload: res.data,
-            });
-            //props.dispatch() dispatches an action
-         })
-         .catch(function (error) {
-            // handle error
-            console.log(error);
-         });
+
       // console.log("In a new class component!");
       this.state = {
          emailError: "",
@@ -37,6 +21,26 @@ class LogIn extends React.Component {
          hasEmailError: false,
          hasPasswordError: false,
       };
+   }
+
+   componentDidMount() {
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/currentUser.json"
+         )
+         .then((res) => {
+            // handle success
+            console.log(res);
+            this.props.dispatch({
+               type: actions.STORE_CURRENT_USER,
+               payload: res.data,
+            });
+            //props.dispatch() dispatches an action
+         })
+         .catch((error) => {
+            // handle error
+            console.log(error);
+         });
    }
 
    async setEmailState(emailInput) {

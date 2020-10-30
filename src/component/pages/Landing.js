@@ -3,19 +3,11 @@ import Header from "../ui/Header";
 import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
 import QuestionPreview from "../ui/QuestionPreview";
+import axios from "axios";
 
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
-
-      //replace questions from mock data with an api call
-
-      /*
-What do I want react to have access to?
-user: {}
-questions: []
-
-*/
 
       this.state = {
          //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
@@ -23,6 +15,23 @@ questions: []
          searchInput: "",
          allQuestions: questions,
       };
+   }
+
+   componentDidMount() {
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
+         )
+         .then((response) => {
+            // handle success
+            console.log(response);
+            //TODO: replace mock data with api call after 324A
+            //do this on landing page too.
+         })
+         .catch((error) => {
+            // handle error
+            console.log(error);
+         });
    }
 
    setIsDisplayingQuestions(e) {
