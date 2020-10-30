@@ -5,6 +5,7 @@ import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
+import allQuestions from "../../store/reducers/allQuestions";
 class Questions extends React.Component {
    constructor(props) {
       super(props);
@@ -16,7 +17,7 @@ class Questions extends React.Component {
       };
    }
 
-   componentDidMount(props) {
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
@@ -26,21 +27,22 @@ class Questions extends React.Component {
             const questions = res.data;
             console.log(`here are the questions: `, questions);
 
+            console.log(`YOOOOOOOOOO`, actions.STORE_ALL_QUESTIONS);
+            this.props.dispatch({
+               type: actions.STORE_ALL_QUESTIONS,
+               payload: questions,
+            });
             this.setState({
                displayedQuestions: orderBy(
-                  questions,
+                  this.props.allQuestions,
                   '[["totalAnswers"], ["asc"]]'
                ),
-               allQuestions: questions.map((question) => {
+               allQuestions: this.props.allQuestions.map((question) => {
                   return {
                      totalAnswers: question.answers.length,
                      ...question,
                   };
                }),
-            });
-            props.dispatch({
-               type: actions.STORE_ALL_QUESTIONS,
-               payload: questions,
             });
          })
          .catch((error) => {
@@ -93,14 +95,15 @@ class Questions extends React.Component {
 
                         <div className="clearfix"></div>
 
-                        {this.state.displayedQuestions.map((question) => {
-                           return (
-                              <QuestionPreview
-                                 question={question}
-                                 key={question.id}
-                              />
-                           );
-                        })}
+                        {this.state.displayedQuestions &&
+                           this.state.displayedQuestions.map((question) => {
+                              return (
+                                 <QuestionPreview
+                                    question={question}
+                                    key={question.id}
+                                 />
+                              );
+                           })}
 
                         <div className="clearfix mb-4"></div>
                      </div>
