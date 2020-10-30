@@ -40,14 +40,8 @@ class Questions extends React.Component {
             });
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
-               payload: res.data,
+               payload: questions,
             });
-
-            // props.dispatch({
-            //    type: actions.STORE_ALL_QUESTIONS,
-            //    payload: res.data,
-            // });
-            // remember we dispatch actions. dispatch takes a type and a payload
          })
          .catch((error) => {
             // handle error
