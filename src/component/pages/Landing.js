@@ -4,17 +4,24 @@ import { Link } from "react-router-dom";
 import questions from "../../mock-data/questions";
 import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
+import { connect } from "react-redux";
+import actions from "../../store/actions";
 
-export default class Landing extends React.Component {
+class Landing extends React.Component {
    constructor(props) {
       super(props);
+
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
-         .then(function (response) {
+         .then(function (res) {
             // handle success
-            console.log(response);
+            console.log(`here's the res`, res);
+            props.dispatch({
+               type: actions.STORE_ALL_QUESTIONS,
+               payload: res.data,
+            }); // remember we dispatch actions. dispatch takes a type and a payload
          })
          .catch(function (error) {
             // handle error
@@ -123,3 +130,11 @@ questions: []
       );
    }
 }
+
+//mapStateToProps says take this global state and map these certain things to properties within this local state
+function mapStateToProps() {
+   //return whatever we want to pass from the global state into the properties
+   return {};
+}
+
+export default connect(mapStateToProps)(Landing);

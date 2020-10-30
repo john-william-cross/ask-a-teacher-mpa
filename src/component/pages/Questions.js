@@ -12,11 +12,27 @@ class Questions extends React.Component {
       super(props);
       axios
          .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
+         )
+         .then(function (res) {
+            // handle success
+            console.log(`currentUser: `, res);
+            props.dispatch({
+               type: actions.STORE_CURRENT_USER,
+               payload: res.data,
+            }); // remember we dispatch actions. dispatch takes a type and a payload
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
+      axios
+         .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
          .then(function (res) {
             // handle success
-            console.log(`here's the res`, res);
+            console.log(`all questions:`, res);
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: res.data,
@@ -44,6 +60,8 @@ user: {}   is this user logged in, does user have access to this page? etc
          }),
       };
    }
+
+   componentDidMount() {}
 
    //REMEMBER THAT STATE IS ALWAYS AN OBJECT
 
