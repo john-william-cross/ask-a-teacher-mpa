@@ -1,11 +1,8 @@
 import { combineReducers } from "redux";
 import currentUser from "./reducers/currentUser";
-// import allQuestions from "./reducers/allQuestions";
-// import updateQuestions from "./reducers/updateQuestions";
+import allQuestions from "./reducers/allQuestions";
 
-// export default combineReducers({ currentUser, allQuestions, updateQuestions });
-
-export default combineReducers({ currentUser });
+export default combineReducers({ currentUser, allQuestions });
 
 //because the keys and values are the same, ie.e currentUser: currentUser, allQuestions: allQuestions; we can use shorthand and just list them like we do above.
 

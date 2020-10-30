@@ -8,6 +8,24 @@ import axios from "axios";
 export default class Questions extends React.Component {
    constructor(props) {
       super(props);
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/01e78b7f058a39e2616348394a7ded0371aedf4b/src/mock-data/questions.json"
+         )
+         .then(function (response) {
+            // handle success
+            console.log(response);
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
+
+      /*
+allQuestions: [],
+indexOfCurrentQuestion: 0,   ?
+user: {}   is this user logged in, does user have access to this page? etc
+*/
 
       this.state = {
          order: `[["createdAt"], ["desc"]]`,
@@ -19,25 +37,6 @@ export default class Questions extends React.Component {
             };
          }),
       };
-   }
-
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
-         )
-         .then((res) => {
-            // handle success
-            console.log(res.data);
-            const questions = res.data;
-
-            //TODO: replace mock data with api call after 324A
-            //do this on landing page too.
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
    }
 
    //REMEMBER THAT STATE IS ALWAYS AN OBJECT

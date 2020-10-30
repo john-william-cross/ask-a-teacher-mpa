@@ -4,43 +4,19 @@ import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
-// import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import actions from "../../store/actions";
-import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
-
-      // console.log("In a new class component!");
+      console.log("In a new class component!");
       this.state = {
          emailError: "",
          passwordError: "",
          hasEmailError: false,
          hasPasswordError: false,
       };
-   }
-
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/currentUser.json"
-         )
-         .then((res) => {
-            // handle success
-            console.log(res);
-            this.props.dispatch({
-               type: actions.STORE_CURRENT_USER,
-               payload: res.data,
-            });
-            //props.dispatch() dispatches an action
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
    }
 
    async setEmailState(emailInput) {
@@ -167,14 +143,4 @@ class LogIn extends React.Component {
    }
 }
 
-// withRouter(LogIn);
-
-function mapStateToProps(state) {
-   //remember this is a global state, has nothing to do with local states above
-   //return whatever we wanted to pass from the global state
-   //into the properties
-   return { currentUser: state.currentUser };
-}
-
-export default connect(mapStateToProps)(LogIn);
-// a curryable function is simply a function that takes every argument by itself, then returns a new function that expects the next dependency to the function until all the dependencies have been fulfilled and the final value is returned.
+export default withRouter(LogIn);

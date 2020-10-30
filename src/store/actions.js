@@ -1,7 +1,6 @@
 const actions = {
    STORE_CURRENT_USER: "STORE_CURRENT_USER",
-   STORE_ALL_QUESTIONS: "STORE_ALL_QUESTIONS",
-   UPDATE_QUESTIONS: "UPDATE_QUESTIONS",
+   STORE_ALL_QUESTIONS:
 };
 
-export default actions;
+export default actions

@@ -1,13 +1,31 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
-import QuestionPreview from "../ui/QuestionPreview";
+import questions from "../../mock-data/questions";
 import axios from "axios";
-// import questions from "../../mock-data/questions";
+import QuestionPreview from "../ui/QuestionPreview";
 
 export default class Landing extends React.Component {
    constructor(props) {
       super(props);
+      axios
+         .get(
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/users.json"
+         )
+         .then(function (response) {
+            // handle success
+            console.log(response);
+         })
+         .catch(function (error) {
+            // handle error
+            console.log(error);
+         });
+
+      /*
+What do I want react to have access to?
+user: {}
+questions: []
+*/
 
       this.state = {
          //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
@@ -15,24 +33,6 @@ export default class Landing extends React.Component {
          searchInput: "",
          allQuestions: questions,
       };
-   }
-
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
-         )
-         .then((res) => {
-            // handle success
-            console.log(res.data);
-            questions = res.data;
-            //TODO: replace mock data with api call after 324A
-            //do this on landing page too.
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
    }
 
    setIsDisplayingQuestions(e) {
@@ -79,7 +79,7 @@ export default class Landing extends React.Component {
                      >
                         Ask a teacher
                      </p>
-                     <input
+                     <textarea
                         className="form-control mt-7"
                         id="question-input-home-page"
                         rows="2"
@@ -89,7 +89,7 @@ export default class Landing extends React.Component {
                            this.setSearchInput(e); //when something is entered into input, setSearchInput is run based on the text entered
                         }}
                         style={{ width: "100%" }}
-                     ></input>
+                     ></textarea>
 
                      {this.state.searchInput && ( //if this.state.searchInput evaluates to true (a blank string evaluates to false, so on page load this.state.searchInput is false. It is true once a char is entered), If it's true, run the second half
                         <div>
@@ -123,11 +123,3 @@ export default class Landing extends React.Component {
       );
    }
 }
-
-// function mapStateToProps() {
-//    //return whatever we wanted to pass from the global state
-//    //into the properties
-//    return {};
-// }
-
-// export default connect(mapStateToProps)(Landing);
