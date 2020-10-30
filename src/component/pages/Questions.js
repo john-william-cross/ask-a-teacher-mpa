@@ -26,9 +26,11 @@ export default class Questions extends React.Component {
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/c1de098beb5dcedce1a628be5ade409908c0be22/src/mock-data/questions.json"
          )
-         .then((response) => {
+         .then((res) => {
             // handle success
-            console.log(response);
+            console.log(res.data);
+            const questions = res.data;
+
             //TODO: replace mock data with api call after 324A
             //do this on landing page too.
          })
