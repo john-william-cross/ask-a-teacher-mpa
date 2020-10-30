@@ -16,7 +16,7 @@ class Questions extends React.Component {
          )
          .then(function (res) {
             // handle success
-            console.log(res);
+            console.log(`here's the res`, res);
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: res.data,

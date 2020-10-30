@@ -5,10 +5,11 @@ import questions from "../../mock-data/questions";
 import toDisplayDate from "date-fns/format";
 import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
 import classnames from "classnames";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import axios from "axios";
 import actions from "../../store/actions";
 import Answer from "../ui/Answer";
+import { connect } from "react-redux";
 
 const question = questions[0];
 const answers = question.answers;
@@ -23,7 +24,7 @@ class Question extends React.Component {
          )
          .then(function (res) {
             // handle success
-            console.log(res);
+            console.log(`here's the res`, res);
             props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: res.data,
@@ -33,7 +34,6 @@ class Question extends React.Component {
             // handle error
             console.log(error);
          });
-      // console.log(`in the questions component`);
       this.state = { answerInput: "" };
    }
 
@@ -125,4 +125,12 @@ class Question extends React.Component {
    }
 }
 
-export default withRouter(Question);
+// withRouter(Question);
+
+//mapStateToProps says take this global state and map these certain things to properties within this local state
+function mapStateToProps() {
+   //return whatever we want to pass from the global state into the properties
+   return {};
+}
+
+export default connect(mapStateToProps)(Question);
