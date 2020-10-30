@@ -4,7 +4,7 @@ import orderBy from "lodash/orderBy";
 import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
-// import actions from "../../store/actions";
+import actions from "../../store/actions";
 
 class Questions extends React.Component {
    constructor(props) {
@@ -17,7 +17,7 @@ class Questions extends React.Component {
       };
    }
 
-   componentDidMount() {
+   componentDidMount(props) {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
@@ -38,6 +38,11 @@ class Questions extends React.Component {
                      ...question,
                   };
                }),
+            });
+            console.log(`hit it`);
+            props.dispatch({
+               type: actions.STORE_ALL_QUESTIONS,
+               payload: res.data,
             });
             // remember we dispatch actions. dispatch takes a type and a payload
          })
@@ -111,9 +116,9 @@ class Questions extends React.Component {
 }
 
 //mapStateToProps says take this global state and map these certain things to properties within this local state
-function mapStateToProps() {
+function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
-   return {};
+   return { allQuestions: state.allQuestions };
 }
 
 export default connect(mapStateToProps)(Questions);
