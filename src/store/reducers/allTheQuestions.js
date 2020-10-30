@@ -1,6 +1,6 @@
 import actions from "../actions";
 
-export default function allQuestions(state = [], action) {
+export default function allTheQuestions(state = [], action) {
    // action.payload, action.type
    switch (action.type) {
       case actions.STORE_ALL_QUESTIONS:

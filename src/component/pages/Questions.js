@@ -1,67 +1,51 @@
 import React from "react";
 import Header from "../ui/Header";
 import orderBy from "lodash/orderBy";
-import questions from "../../mock-data/questions";
 import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
-import actions from "../../store/actions";
+// import actions from "../../store/actions";
 
 class Questions extends React.Component {
    constructor(props) {
       super(props);
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
-         )
-         .then(function (res) {
-            // handle success
-            console.log(`currentUser: `, res);
-            props.dispatch({
-               type: actions.STORE_CURRENT_USER,
-               payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
-         })
-         .catch(function (error) {
-            // handle error
-            console.log(error);
-         });
+
+      this.state = {
+         order: `[["createdAt"], ["desc"]]`,
+         displayedQuestions: [],
+         allQuestions: [],
+      };
+   }
+
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
-         .then(function (res) {
+         .then((res) => {
             // handle success
-            console.log(`all questions:`, res);
-            props.dispatch({
-               type: actions.STORE_ALL_QUESTIONS,
-               payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
+            const questions = res.data;
+            console.log(questions);
+
+            this.setState({
+               displayedQuestions: orderBy(
+                  questions,
+                  '[["totalAnswers"], ["asc"]]'
+               ),
+               allQuestions: questions.map((question) => {
+                  return {
+                     totalAnswers: question.answers.length,
+                     ...question,
+                  };
+               }),
+            });
+            // remember we dispatch actions. dispatch takes a type and a payload
          })
-         .catch(function (error) {
+         .catch((error) => {
             // handle error
             console.log(error);
          });
-
-      /*
-allQuestions: [],
-indexOfCurrentQuestion: 0,   ?
-user: {}   is this user logged in, does user have access to this page? etc
-*/
-
-      this.state = {
-         order: `[["createdAt"], ["desc"]]`,
-         displayedQuestions: orderBy(questions, '[["totalAnswers"], ["asc"]]'),
-         allQuestions: questions.map((question) => {
-            return {
-               totalAnswers: question.answers.length,
-               ...question,
-            };
-         }),
-      };
    }
-
-   componentDidMount() {}
 
    //REMEMBER THAT STATE IS ALWAYS AN OBJECT
 

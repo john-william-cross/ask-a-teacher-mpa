@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import currentUser from "./reducers/currentUser";
-import allQuestions from "./reducers/allQuestions";
+import allQuestions from "./reducers/allTheQuestions";
 
 export default combineReducers({ currentUser, allQuestions });
 
