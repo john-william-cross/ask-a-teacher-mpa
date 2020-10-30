@@ -86,7 +86,7 @@ questions: []
                      >
                         Ask a teacher
                      </p>
-                     <textarea
+                     <input
                         className="form-control mt-7"
                         id="question-input-home-page"
                         rows="2"
@@ -96,7 +96,7 @@ questions: []
                            this.setSearchInput(e); //when something is entered into input, setSearchInput is run based on the text entered
                         }}
                         style={{ width: "100%" }}
-                     ></textarea>
+                     ></input>
 
                      {this.state.searchInput && ( //if this.state.searchInput evaluates to true (a blank string evaluates to false, so on page load this.state.searchInput is false. It is true once a char is entered), If it's true, run the second half
                         <div>
