@@ -13,9 +13,14 @@ class SignUp extends React.Component {
    //we can set the state in constructor
    constructor(props) {
       super(props);
+      this.state = {
+         emailError: "",
+         passwordError: "",
+         hasEmailError: false,
+         hasPasswordError: false,
+      };
    }
-
-   componentDidMount(props) {
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
@@ -23,16 +28,10 @@ class SignUp extends React.Component {
          .then((res) => {
             // handle success
             console.log(`currentUser: `, res);
-            props.dispatch({
+            this.props.dispatch({
                type: actions.STORE_CURRENT_USER,
                payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
-            this.setState({
-               emailError: "",
-               passwordError: "",
-               hasEmailError: false,
-               hasPasswordError: false,
-            });
+            }); // this doesn't store user
          })
          .catch((error) => {
             // handle error

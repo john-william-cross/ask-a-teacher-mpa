@@ -137,7 +137,6 @@ class LogIn extends React.Component {
                               {this.state.passwordError}
                            </p>
                         )}
-                        {/* <!-- <p id="password-error-message" className="d-none text-danger"></p> --> */}
                         <p className="text-muted">
                            <button
                               to="questions"
