@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
-import questions from "../../mock-data/questions";
 import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
 import { connect } from "react-redux";
@@ -13,30 +12,37 @@ class Landing extends React.Component {
 
       this.state = {
          //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
-         displayedQuestions: questions,
+         // displayedQuestions: questions,
          searchInput: "",
-         allQuestions: questions,
+         // allQuestions: questions,
       };
    }
 
-   componentDidMount(props) {
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
-         .then(function (res) {
+         .then((res) => {
             // handle success
-            console.log(`here's the res`, res);
-            props.dispatch({
+            const questions = res.data;
+            console.log(`here are the questions: `, questions);
+
+            console.log(`YOOOOOOOOOO`, actions.STORE_ALL_QUESTIONS);
+            this.props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
-               payload: res.data,
+               payload: questions,
             });
-            // this.setState = {                     this causes crash when local state is removed from component
-            //    displayedQuestions: questions,
-            //    allQuestions: questions,
-            // };
+            this.setState({
+               allQuestions: this.props.allQuestions.map((question) => {
+                  return {
+                     totalAnswers: question.answers.length,
+                     ...question,
+                  };
+               }),
+            });
          })
-         .catch(function (error) {
+         .catch((error) => {
             // handle error
             console.log(error);
          });
@@ -112,15 +118,15 @@ class Landing extends React.Component {
                                  Submit a new question
                               </Link>
                            </div>
-                           {this.state.displayedQuestions.map((question) => {
-                              //map over each question in displayedQuestions
-                              return (
-                                 <QuestionPreview
-                                    question={question}
-                                    key={question.id}
-                                 />
-                              );
-                           })}{" "}
+                           {this.state.displayedQuestions &&
+                              this.state.displayedQuestions.map((question) => {
+                                 return (
+                                    <QuestionPreview
+                                       question={question}
+                                       key={question.id}
+                                    />
+                                 );
+                              })}{" "}
                         </div>
                      )}
                   </div>
