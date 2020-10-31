@@ -22,20 +22,20 @@ class Question extends React.Component {
       this.state = { answerInput: "" };
    }
 
-   componentDidMount(props) {
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
          )
-         .then(function (res) {
+         .then((res) => {
             // handle success
             console.log(`here's the res`, res);
-            // props.dispatch({
-            //    type: actions.STORE_ALL_QUESTIONS,
-            //    payload: res.data,
-            // }); // remember we dispatch actions. dispatch takes a type and a payload
+            this.props.dispatch({
+               type: actions.STORE_ALL_QUESTIONS,
+               payload: res.data,
+            }); // remember we dispatch actions. dispatch takes a type and a payload
          })
-         .catch(function (error) {
+         .catch((error) => {
             // handle error
             console.log(error);
          });
@@ -66,7 +66,7 @@ class Question extends React.Component {
                            <Link to="question">{question.text}</Link>
                         </div>
                         <p className="text-muted asked-on-answers-num float-left">
-                           Asked on {toDisplayDate(createdAtDate, "MMM. d, y")}.
+                           Asked on {toDisplayDate(createdAtDate, "MMMM d, y")}.
                         </p>
                         <p className="text-muted asked-on-answers-num float-right">
                            {answers.length} answers

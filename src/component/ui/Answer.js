@@ -10,7 +10,7 @@ export default function Answer(props) {
                <span className="text-muted">
                   This question was answered by a teacher in{" "}
                   {props.answer.userHomeState} on{" "}
-                  {toDisplayDate(props.answer.answeredAt, "MMM. d, y")}.
+                  {toDisplayDate(props.answer.answeredAt, "MMMM d, y")}.
                </span>
             </p>
          </div>

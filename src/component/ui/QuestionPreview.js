@@ -10,7 +10,7 @@ export default function QuestionPreviews(props) {
                <Link to="question">{props.question.text}</Link>
             </div>
             <p className="text-muted asked-on-answers-num float-left mb-4">
-               Asked on {toDisplayDate(props.question.createdAt, "MMM. d, y")}.
+               Asked on {toDisplayDate(props.question.createdAt, "MMMM d, y")}.
             </p>
             <p className="text-muted asked-on-answers-num float-right">
                {props.question.answers.length} answers
