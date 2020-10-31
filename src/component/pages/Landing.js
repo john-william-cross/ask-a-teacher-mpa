@@ -9,12 +9,8 @@ import actions from "../../store/actions";
 class Landing extends React.Component {
    constructor(props) {
       super(props);
-
       this.state = {
-         //this sets the state of displayedQuestions, searchInput, and allQuestions when page is loaded
-         // displayedQuestions: questions,
          searchInput: "",
-         // allQuestions: questions,
       };
    }
 
@@ -34,12 +30,8 @@ class Landing extends React.Component {
                payload: questions,
             });
             this.setState({
-               allQuestions: this.props.allQuestions.map((question) => {
-                  return {
-                     totalAnswers: question.answers.length,
-                     ...question,
-                  };
-               }),
+               displayedQuestions: questions,
+               allQuestions: questions,
             });
          })
          .catch((error) => {
