@@ -21,20 +21,20 @@ class LogIn extends React.Component {
       };
    }
 
-   componentDidMount(props) {
+   componentDidMount() {
       axios
          .get(
             "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
          )
-         .then(function (res) {
+         .then((res) => {
             // handle success
             console.log(`currentUser: `, res);
-            props.dispatch({
+            this.props.dispatch({
                type: actions.STORE_CURRENT_USER,
                payload: res.data,
             }); // this doesn't store user
          })
-         .catch(function (error) {
+         .catch((error) => {
             // handle error
             console.log(error);
          });
