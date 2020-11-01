@@ -5,8 +5,9 @@ import actions from "../actions";
 
 export default function currentUser(state = {}, action) {
    switch (action.type) {
-      case actions.STORE_CURRENT_USER:
+      case actions.UPDATE_CURRENT_USER:
          return action.payload;
+      // (that object we got from api call)
       default:
          return state;
    }

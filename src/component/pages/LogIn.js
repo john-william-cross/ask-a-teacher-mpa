@@ -4,10 +4,10 @@ import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
+
 class LogIn extends React.Component {
    //we can set the state in constructor
    constructor(props) {
@@ -21,24 +21,6 @@ class LogIn extends React.Component {
       };
    }
 
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
-         )
-         .then((res) => {
-            // handle success
-            console.log(`currentUser: `, res);
-            this.props.dispatch({
-               type: actions.STORE_CURRENT_USER,
-               payload: res.data,
-            }); // this doesn't store user
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
-   }
    async setEmailState(emailInput) {
       const lowerCasedEmailInput = emailInput.toLowerCase();
       console.log(lowerCasedEmailInput);
@@ -75,10 +57,11 @@ class LogIn extends React.Component {
       }
    }
 
-   async validateUser() {
+   async validateAndLogInUser() {
       const emailInput = document.getElementById("login-email-input").value;
       const passwordInput = document.getElementById("login-password-input")
          .value;
+      console.log({ emailInput, passwordInput });
       await this.setEmailState(emailInput);
       await this.setPasswordState(passwordInput, emailInput);
       if (
@@ -86,12 +69,32 @@ class LogIn extends React.Component {
          this.state.hasPasswordError === false
       ) {
          const user = {
+            //creating that user here
             id: getUuid(),
             email: emailInput,
             password: hash(passwordInput),
             createdAt: Date.now(),
          };
-         console.log(user);
+         console.log("Created user object for POST: ", user);
+         // Mimic API response:
+         axios
+            .get(
+               "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
+            )
+            .then((res) => {
+               // handle success
+               const currentUser = res.data;
+               console.log(`currentUser: `, currentUser);
+               this.props.dispatch({
+                  type: actions.UPDATE_CURRENT_USER,
+                  payload: res.data,
+               }); // this doesn't store user
+            })
+            .catch((error) => {
+               // handle error
+               console.log(error);
+            });
+         //redirect the user
          this.props.history.push("/questions");
       }
    }
@@ -143,7 +146,7 @@ class LogIn extends React.Component {
                               id="return-user-sign-in-button"
                               className="btn btn-outline-secondary logo-text-font lead sign-in mt-5"
                               onClick={() => {
-                                 this.validateUser();
+                                 this.validateAndLogInUser();
                               }}
                            >
                               Sign in
@@ -165,7 +168,7 @@ class LogIn extends React.Component {
 // export default withRouter(LogIn);
 function mapStateToProps() {
    //return whatever we want to pass from the global state into the properties
-   return {};
+   return {}; //we don't need any redux global state, but if we do we can grab it from redux global state and map it to this props for this component. Until then we'll return a blank object.
 }
 
 export default connect(mapStateToProps)(LogIn);

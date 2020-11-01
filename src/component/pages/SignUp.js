@@ -3,7 +3,6 @@ import Header from "../ui/Header";
 import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
-import { withRouter } from "react-router-dom";
 import axios from "axios";
 import actions from "../../store/actions";
 import { connect } from "react-redux";
@@ -27,9 +26,10 @@ class SignUp extends React.Component {
          )
          .then((res) => {
             // handle success
-            console.log(`currentUser: `, res);
+            const currentUser = res.data;
+            console.log(`currentUser: `, currentUser);
             this.props.dispatch({
-               type: actions.STORE_CURRENT_USER,
+               type: actions.UPDATE_CURRENT_USER,
                payload: res.data,
             }); // this doesn't store user
          })
