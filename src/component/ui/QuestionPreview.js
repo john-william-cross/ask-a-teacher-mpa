@@ -4,22 +4,34 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
 import allQuestions from "../../store/reducers/allQuestions";
+import Questions from "../pages/Questions";
 
 function QuestionPreview(props) {
+   const array1 = [5, 12, 8, 130, 44];
+   const findLargeNumber = (element) => element > 13;
+   console.log(array1.findIndex(findLargeNumber));
+
    function storeAnswerableQuestion(e) {
-      const question = e.target.text;
-      console.log(question);
-      console.log("here's the specific question you clicked on: ", {
-         question,
+      const id = e.target.id;
+      console.log(`here's the id: `, id);
+
+      const match = props.allQuestions.find((question) => {
+         return question.id === id;
       });
-      props.dispatch({
-         type: actions.STORE_ANSWERABLE_QUESTION,
-         payload: e.target.id,
-      });
+
+      console.log("match with find method: ", match);
+
+      console.log("HERE IS THE MATCHING QUESTIONS ARRAY: ", matchingQuestions);
+
+      console.log("matching question: ", matchingQuestion);
+
       // get the question object with this id
       // from the array of allQuestions, console log this object
+      // get the index of the question from allQuestions where
+      // the id is equal to the id of the question I clicked on.
+
       // store the object inside the redux store /////use props.dispatch; won't need this.props.dispatch
-      console.log("Inside storeAnswerableQuestion: ", e.target.id);
+      console.log("Inside storeAnswerableQuestion: ", id);
    }
 
    //commit comment
@@ -56,7 +68,7 @@ function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
    return {
       answerableQuestion: state.answerableQuestion,
-      // answerableQuestion: state.answerableQuestion,
+      allQuestions: state.allQuestions,
    };
 }
 export default connect(mapStateToProps)(QuestionPreview);

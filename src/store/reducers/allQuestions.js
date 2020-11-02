@@ -9,6 +9,7 @@ export default function allQuestions(state = [], action) {
             "payload for actions.STORE_ALL_QUESTIONS: ",
             action.payload
          );
+
          return action.payload; //this will be an array of objects that will be stored inside our Redux store
       default:
          return state;
