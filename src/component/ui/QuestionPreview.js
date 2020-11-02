@@ -20,12 +20,9 @@ function QuestionPreview(props) {
       // from the array of allQuestions, console log this object
       // store the object inside the redux store /////use props.dispatch; won't need this.props.dispatch
       console.log("Inside storeAnswerableQuestion: ", e.target.id);
-      console.log(
-         "Question Preview props.allQuestions: ",
-         props.answerableQuestion
-      );
    }
 
+   //commit comment
    return (
       <>
          <div className="lead mt-6 mb-1">
