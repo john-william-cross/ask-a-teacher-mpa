@@ -5,6 +5,7 @@ import combineReducers from "./combineReducers";
 const initialState = {
    currentUser: {},
    allQuestions: [],
+   answerableQuestion: {},
 };
 
 const store = createStore(combineReducers, initialState, composeWithDevTools());

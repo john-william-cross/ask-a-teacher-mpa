@@ -119,6 +119,7 @@ class Question extends React.Component {
                            value="Submit answer"
                         >
                            Submit answer
+                           {/* on click,  */}
                         </Link>
                      </div>
                   </div>
@@ -138,3 +139,22 @@ function mapStateToProps() {
 }
 
 export default connect(mapStateToProps)(Question);
+
+/*
+
+answerableQuestion {
+
+   prevRoute:""
+   id: "",
+   text: "",
+   email: "",
+   createdAt: num,
+   answers: [
+      {
+         // all the answer properties
+      }
+   ] 
+}
+
+
+*/
