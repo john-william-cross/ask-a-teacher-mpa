@@ -32,7 +32,7 @@ class Questions extends React.Component {
             this.props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: questions,
-            });
+            }); //this loads the questions
             this.setState({
                displayedQuestions: orderBy(
                   this.props.allQuestions,
@@ -121,7 +121,7 @@ function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
    return {
       allQuestions: state.allQuestions,
-      answerableQuestion: state.answerableQuestion,
+      // answerableQuestion: state.answerableQuestion,
    };
 }
 

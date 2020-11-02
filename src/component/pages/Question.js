@@ -31,7 +31,7 @@ class Question extends React.Component {
             // handle success
             console.log(`here's the res`, res);
             this.props.dispatch({
-               type: actions.STORE_ALL_QUESTIONS,
+               type: actions.STORE_ANSWERABLE_QUESTION,
                payload: res.data,
             }); // remember we dispatch actions. dispatch takes a type and a payload
          })

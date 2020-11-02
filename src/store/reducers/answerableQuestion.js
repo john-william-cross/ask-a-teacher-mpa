@@ -2,14 +2,11 @@ import actions from "../actions";
 
 export default function answerableQuestion(answerableQuestion = {}, action) {
    // action.payload, action.type
-   console.log(
-      `answerableQuestion has fired, but if you don't see a console log below this that says "YEP IT SURE HAS", then everything isn't quite yet working... `,
-      action.type
-   );
+   console.log("should this be firing already?");
    let newAnswerableQuestion = { ...answerableQuestion };
    switch (action.type) {
       case actions.STORE_ANSWERABLE_QUESTION:
-         console.log("YEP IT SURE HAS");
+         console.log("NOW INSIDE actions.STORE_ANSWERABLE_QUESTION");
          newAnswerableQuestion.answers = action.payload.answers;
          newAnswerableQuestion.prevRoute = action.payload.prevRoute;
          newAnswerableQuestion.id = action.payload.id;
