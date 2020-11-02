@@ -119,7 +119,10 @@ class Questions extends React.Component {
 //mapStateToProps says take this global state and map these certain things to properties within this local state
 function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
-   return { allQuestions: state.allQuestions };
+   return {
+      allQuestions: state.allQuestions,
+      answerableQuestion: state.answerableQuestion,
+   };
 }
 
 export default connect(mapStateToProps)(Questions);

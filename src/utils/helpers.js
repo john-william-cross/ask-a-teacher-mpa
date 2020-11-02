@@ -1,3 +1,6 @@
+import actions from "../store/actions";
+import allQuestions from "../store/reducers/allQuestions";
+
 function checkAnswerIsOver(str, num) {
    if (str.length > num) return true;
    else return false;
