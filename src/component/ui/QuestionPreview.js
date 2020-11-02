@@ -11,7 +11,7 @@ export default function QuestionPreviews(props) {
                <Link
                   to="question"
                   onClick={() => {
-                     storeAnswerableQuestion(props.question.text);
+                     storeAnswerableQuestion();
                   }}
                >
                   {props.question.text}

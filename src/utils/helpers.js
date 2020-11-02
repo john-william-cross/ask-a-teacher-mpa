@@ -16,7 +16,7 @@ function checkQuestionIsOver(str, num) {
 }
 
 function storeAnswerableQuestion() {
-   console.log("STORING ANSWERABLE QUESTION");
+   console.log("***** inside storeAnswerableQuestion *****");
 }
 
 const QUESTION_MAX_CARD_CHARS = 500;
