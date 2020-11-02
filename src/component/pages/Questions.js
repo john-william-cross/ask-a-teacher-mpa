@@ -5,7 +5,8 @@ import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
-import allQuestions from "../../store/reducers/allQuestions";
+// import allQuestions from "../../store/reducers/allQuestions";
+
 class Questions extends React.Component {
    constructor(props) {
       super(props);
@@ -27,7 +28,7 @@ class Questions extends React.Component {
             const questions = res.data;
             console.log(`here are the questions: `, questions);
 
-            console.log(`YOOOOOOOOOO`, actions.STORE_ALL_QUESTIONS);
+            console.log("STORE ALL QUESTIONS", actions.STORE_ALL_QUESTIONS);
             this.props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: questions,

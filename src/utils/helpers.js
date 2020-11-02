@@ -12,8 +12,16 @@ function checkQuestionIsOver(str, num) {
    else return false;
 }
 
+function storeAnswerableQuestion() {
+   console.log("STORING ANSWERABLE QUESTION");
+}
+
 const QUESTION_MAX_CARD_CHARS = 500;
 
-export { checkQuestionIsOver, QUESTION_MAX_CARD_CHARS };
+export {
+   checkQuestionIsOver,
+   QUESTION_MAX_CARD_CHARS,
+   storeAnswerableQuestion,
+};
 
 //technically you could put something like setEmailState here

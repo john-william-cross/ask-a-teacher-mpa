@@ -1,13 +1,21 @@
 import React from "react";
 import toDisplayDate from "date-fns/format";
 import { Link } from "react-router-dom";
+import { storeAnswerableQuestion } from "../../utils/helpers";
 
 export default function QuestionPreviews(props) {
    return (
       <>
          <div key={props.question.id}>
             <div className="lead mt-6 mb-1">
-               <Link to="question">{props.question.text}</Link>
+               <Link
+                  to="question"
+                  onClick={() => {
+                     storeAnswerableQuestion();
+                  }}
+               >
+                  {props.question.text}
+               </Link>
                {/* once clicked we want to grab the details of whatever question we clicked on and get the URL of the previous route ("/questions") and store it inside of redux global state (use action STORE_ANSWERABLE_QUESTION*/}
             </div>
             <p className="text-muted asked-on-answers-num float-left mb-4">
