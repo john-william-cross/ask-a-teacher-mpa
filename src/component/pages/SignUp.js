@@ -117,7 +117,27 @@ class SignUp extends React.Component {
             password: hash(passwordInput),
             createdAt: Date.now(),
          };
-         console.log(user);
+         console.log("Created user object for POST: ", user);
+
+         // Mimic API response:
+         axios
+            .get(
+               "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/currentUser.json"
+            )
+            .then((res) => {
+               // handle success
+               const currentUser = res.data;
+               console.log(`currentUser: `, currentUser);
+               this.props.dispatch({
+                  type: actions.UPDATE_CURRENT_USER,
+                  payload: res.data,
+               }); // this doesn't store user
+            })
+            .catch((error) => {
+               // handle error
+               console.log(error);
+            });
+         //redirect the user
          this.props.history.push("/questions");
       }
    }
@@ -133,7 +153,7 @@ class SignUp extends React.Component {
                         <h1 className="text-center logo-text-font mt-n5 mt-md-3">
                            Thanks for joining us!
                         </h1>
-                        <p className="mt-6">Where do you teach?</p>
+                        {/* <p className="mt-6">Where do you teach?</p>
                         <select className="col-5 form-control form-control-lg mb-5 mt-3">
                            <option value="AL">Alabama</option>
                            <option value="AK">Alaska</option>
@@ -186,8 +206,8 @@ class SignUp extends React.Component {
                            <option value="WV">West Virginia</option>
                            <option value="WI">Wisconsin</option>
                            <option value="WY">Wyoming</option>
-                        </select>
-                        <p className="mt-2">Enter your CCSD email</p>
+                        </select> */}
+                        <p className="mt-7">Enter your CCSD email</p>
                         <>
                            <input
                               id="signup-email-input"
@@ -245,9 +265,10 @@ class SignUp extends React.Component {
 
 // export default withRouter(SignUp);
 
+// export default withRouter(LogIn);
 function mapStateToProps() {
    //return whatever we want to pass from the global state into the properties
-   return {};
+   return {}; //we don't need any redux global state, but if we do we can grab it from redux global state and map it to this props for this component. Until then we'll return a blank object.
 }
 
 export default connect(mapStateToProps)(SignUp);
