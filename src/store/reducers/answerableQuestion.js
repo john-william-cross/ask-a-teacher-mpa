@@ -13,11 +13,11 @@ export default function answerableQuestion(answerableQuestion = {}, action) {
          newAnswerableQuestion.text = action.payload.text;
          newAnswerableQuestion.email = action.payload.email;
          newAnswerableQuestion.createdAt = action.payload.createdAt;
-         console.log(
-            "here's the newAnswerableQuestion: ",
-            newAnswerableQuestion
-         );
-
+         // console.log(
+         //    "here's the newAnswerableQuestion: ",
+         //    newAnswerableQuestion
+         // );
+         console.log(newAnswerableQuestion);
          return newAnswerableQuestion; //this will be an array of objects that will be stored inside our Redux store
       default:
          return answerableQuestion;
