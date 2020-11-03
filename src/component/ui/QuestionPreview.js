@@ -7,10 +7,6 @@ import allQuestions from "../../store/reducers/allQuestions";
 import Questions from "../pages/Questions";
 
 function QuestionPreview(props) {
-   const array1 = [5, 12, 8, 130, 44];
-   const findLargeNumber = (element) => element > 13;
-   console.log(array1.findIndex(findLargeNumber));
-
    function storeAnswerableQuestion(e) {
       const id = e.target.id;
       console.log(`here's the id: `, id);
@@ -19,11 +15,10 @@ function QuestionPreview(props) {
          return question.id === id;
       });
 
-      console.log("match with find method: ", match);
-
-      console.log("HERE IS THE MATCHING QUESTIONS ARRAY: ", matchingQuestions);
-
-      console.log("matching question: ", matchingQuestion);
+      props.dispatch({
+         type: actions.STORE_ANSWERABLE_QUESTION,
+         payload: { text: match },
+      });
 
       // get the question object with this id
       // from the array of allQuestions, console log this object
@@ -31,10 +26,8 @@ function QuestionPreview(props) {
       // the id is equal to the id of the question I clicked on.
 
       // store the object inside the redux store /////use props.dispatch; won't need this.props.dispatch
-      console.log("Inside storeAnswerableQuestion: ", id);
    }
 
-   //commit comment
    return (
       <>
          <div className="lead mt-6 mb-1">
