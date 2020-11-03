@@ -15,10 +15,13 @@ class Header extends React.Component {
       return (
          <>
             <div className="footer-solid fixed-bottom">
-               <div className="container mb-4 mt-4 mt-sm-4 mt-md-3 mt-lg-2">
+               <div className="container mb-3 mt-3 mt-sm-3 mt-md-3 mt-lg-2">
                   <div className="row">
-                     <div className="col-6 my-3">
-                        <Link to="/LogIn" className="contact no-underline">
+                     <div className="col-6">
+                        <Link
+                           to="/LogIn"
+                           className="contact float-left my-3 no-underline"
+                        >
                            Contact
                         </Link>
                      </div>
