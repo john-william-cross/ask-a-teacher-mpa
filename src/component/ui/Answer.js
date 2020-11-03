@@ -13,6 +13,7 @@ export default function Answer(props) {
                   {toDisplayDate(props.answer.answeredAt, "MMMM d, y")}.
                </span>
             </p>
+            <hr></hr>
          </div>
       </>
    );

@@ -39,7 +39,7 @@ class Question extends React.Component {
                <div className="row no-gutters">
                   <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                      <div className="col-12">
-                        <div className="lead mb-4">
+                        <div className="lead mb-2">
                            <Link to="question">
                               {this.props.answerableQuestion.text}
                            </Link>
@@ -52,12 +52,14 @@ class Question extends React.Component {
                            )}
                            .
                         </p>
+
                         <p className="text-muted asked-on-answers-num float-right">
                            {this.props.answerableQuestion.answers.length}{" "}
                            answers
                         </p>
 
                         <div className="clearfix mb-4"></div>
+                        <hr></hr>
                         <div
                            className="answers"
                            style={{ textAlign: "justify" }}
