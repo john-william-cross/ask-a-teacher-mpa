@@ -3,8 +3,6 @@ import toDisplayDate from "date-fns/format";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
-import allQuestions from "../../store/reducers/allQuestions";
-import Questions from "../pages/Questions";
 
 function QuestionPreview(props) {
    function storeAnswerableQuestion(e) {
