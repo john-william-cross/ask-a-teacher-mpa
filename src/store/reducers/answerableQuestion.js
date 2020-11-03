@@ -13,7 +13,6 @@ export default function answerableQuestion(answerableQuestion = {}, action) {
          // newAnswerableQuestion.id = action.payload.id;
          // newAnswerableQuestion.email = action.payload.email;
          // newAnswerableQuestion.createdAt = action.payload.createdAt;
-
          return newAnswerableQuestion; //this will be an array of objects that will be stored inside our Redux store
       default:
          return answerableQuestion;

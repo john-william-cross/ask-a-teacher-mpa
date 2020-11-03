@@ -133,9 +133,11 @@ class Question extends React.Component {
 // withRouter(Question);
 
 //mapStateToProps says take this global state and map these certain things to properties within this local state
-function mapStateToProps() {
+function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
-   return {};
+   return {
+      answerableQuestion: state.answerableQuestion,
+   };
 }
 
 export default connect(mapStateToProps)(Question);

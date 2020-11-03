@@ -121,7 +121,6 @@ function mapStateToProps(state) {
    //return whatever we want to pass from the global state into the properties
    return {
       allQuestions: state.allQuestions,
-      answerableQuestion: state.answerableQuestion,
    };
 }
 
