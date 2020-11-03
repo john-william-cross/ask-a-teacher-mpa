@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 import QuestionPreview from "../ui/QuestionPreview";
@@ -124,6 +126,7 @@ class Landing extends React.Component {
                   </div>
                </div>
             </div>
+            <Footer />
          </>
       );
    }

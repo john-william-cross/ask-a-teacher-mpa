@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
@@ -258,6 +260,7 @@ class SignUp extends React.Component {
                   </div>
                </div>
             </div>
+            <Footer />
          </>
       );
    }

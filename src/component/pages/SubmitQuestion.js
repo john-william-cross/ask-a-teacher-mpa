@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import {
    checkQuestionIsOver,
    QUESTION_MAX_CARD_CHARS,
@@ -127,6 +129,7 @@ class SubmitQuestion extends React.Component {
                   </div>
                </div>
             </div>
+            <Footer />
          </>
       );
    }

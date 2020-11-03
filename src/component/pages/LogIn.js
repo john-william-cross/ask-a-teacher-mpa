@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import classnames from "classnames";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
@@ -102,8 +104,9 @@ class LogIn extends React.Component {
    render() {
       return (
          <>
+            {" "}
+            <Header />
             <div className="container">
-               <Header />
                <div className="row">
                   <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                      <div className="return-user-sign-in">
@@ -160,6 +163,7 @@ class LogIn extends React.Component {
                   </div>
                </div>
             </div>
+            <Footer />
          </>
       );
    }

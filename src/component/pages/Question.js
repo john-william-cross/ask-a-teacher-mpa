@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import { Link } from "react-router-dom";
 import toDisplayDate from "date-fns/format";
 import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
@@ -7,6 +9,7 @@ import classnames from "classnames";
 import Answer from "../ui/Answer";
 import { connect } from "react-redux";
 import isEmpty from "lodash/isEmpty";
+import appLogo from "../../icons/white-logo.svg";
 
 class Question extends React.Component {
    constructor(props) {
@@ -104,9 +107,9 @@ class Question extends React.Component {
                                  </span>
                               </p>
                               <Link
-                                 to="/questions"
+                                 to={this.props.answerableQuestion.prevRoute}
                                  className={classnames(
-                                    "mt-5 mb-8 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
+                                    "mt-5 mb-9 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
                                     { disabled: this.checkAnswerIsOver() }
                                  )}
                                  id="submit-answer"
@@ -121,6 +124,7 @@ class Question extends React.Component {
                      </div>
                   </div>
                )}{" "}
+               <Footer />
             </>
          </>
       );
@@ -137,22 +141,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Question);
-
-/*
-
-answerableQuestion {
-
-   prevRoute:""
-   id: "",
-   text: "",
-   email: "",
-   createdAt: num,
-   answers: [
-      {
-         // all the answer properties
-      }
-   ] 
-}
-
-
-*/

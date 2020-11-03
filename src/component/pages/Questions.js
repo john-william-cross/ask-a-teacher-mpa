@@ -1,10 +1,15 @@
 import React from "react";
 import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+
 import orderBy from "lodash/orderBy";
 import QuestionPreview from "../ui/QuestionPreview";
 import axios from "axios";
 import { connect } from "react-redux";
 import actions from "../../store/actions";
+import { Link } from "react-router-dom";
+import appLogo from "../../icons/white-logo.svg";
+
 // import allQuestions from "../../store/reducers/allQuestions";
 
 class Questions extends React.Component {
@@ -111,6 +116,7 @@ class Questions extends React.Component {
                   </div>
                </div>
             </div>
+            <Footer />
          </>
       );
    }
