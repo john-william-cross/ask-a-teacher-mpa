@@ -9,7 +9,7 @@ export default function answerableQuestion(answerableQuestion = {}, action) {
          console.log("NOW INSIDE actions.STORE_ANSWERABLE_QUESTION");
          newAnswerableQuestion = action.payload.text;
          // newAnswerableQuestion.answers = action.payload.answers;
-         // newAnswerableQuestion.prevRoute = action.payload.prevRoute;
+         newAnswerableQuestion.prevRoute = action.payload.prevRoute;
          // newAnswerableQuestion.id = action.payload.id;
          // newAnswerableQuestion.email = action.payload.email;
          // newAnswerableQuestion.createdAt = action.payload.createdAt;

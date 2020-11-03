@@ -15,7 +15,7 @@ function QuestionPreview(props) {
 
       props.dispatch({
          type: actions.STORE_ANSWERABLE_QUESTION,
-         payload: { text: match },
+         payload: { text: match, prevRoute: "/questions" },
       });
 
       // get the question object with this id
