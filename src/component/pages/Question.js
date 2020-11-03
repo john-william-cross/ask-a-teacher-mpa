@@ -106,10 +106,11 @@ class Question extends React.Component {
                                     {ANSWER_MAX_CARD_CHARS}
                                  </span>
                               </p>
+
                               <Link
                                  to={this.props.answerableQuestion.prevRoute}
                                  className={classnames(
-                                    "mt-5 mb-9 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
+                                    "mt-5 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
                                     { disabled: this.checkAnswerIsOver() }
                                  )}
                                  id="submit-answer"
@@ -119,6 +120,14 @@ class Question extends React.Component {
                                  Submit answer
                                  {/* on click,  */}
                                  {/* TODO: ADD TAKE ME BACK/CANCEL BUTTON */}
+                              </Link>
+                              <Link
+                                 to={this.props.answerableQuestion.prevRoute}
+                                 className={classnames(
+                                    "text-muted cancel float-right mb-9 mt-n5 offset-3"
+                                 )}
+                              >
+                                 Cancel submission
                               </Link>
                            </div>
                         </div>
