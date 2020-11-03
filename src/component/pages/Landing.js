@@ -24,7 +24,7 @@ class Landing extends React.Component {
             const questions = res.data;
             console.log(`here are the questions: `, questions);
 
-            console.log(`YOOOOOOOOOO`, actions.STORE_ALL_QUESTIONS);
+            // console.log(`YOOOOOOOOOO`, actions.STORE_ALL_QUESTIONS);
             this.props.dispatch({
                type: actions.STORE_ALL_QUESTIONS,
                payload: questions,
