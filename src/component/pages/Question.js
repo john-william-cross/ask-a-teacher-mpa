@@ -1,19 +1,13 @@
 import React from "react";
 import Header from "../ui/Header";
 import { Link } from "react-router-dom";
-import questions from "../../mock-data/questions";
+
 import toDisplayDate from "date-fns/format";
 import { checkAnswerIsOver, ANSWER_MAX_CARD_CHARS } from "../../utils/helpers";
 import classnames from "classnames";
-// import { withRouter } from "react-router-dom";
-import axios from "axios";
-import actions from "../../store/actions";
+
 import Answer from "../ui/Answer";
 import { connect } from "react-redux";
-
-const question = questions[0];
-const answers = question.answers;
-const createdAtDate = question.createdAt;
 
 class Question extends React.Component {
    constructor(props) {
@@ -21,24 +15,7 @@ class Question extends React.Component {
       this.state = { answerInput: "" };
    }
 
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
-         )
-         .then((res) => {
-            // handle success
-            console.log(`here's the res`, res);
-            this.props.dispatch({
-               type: actions.STORE_ANSWERABLE_QUESTION,
-               payload: res.data,
-            }); // remember we dispatch actions. dispatch takes a type and a payload
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
-   }
+   //don't need API; data is coming form the global state
 
    checkAnswerIsOver() {
       if (
@@ -52,6 +29,7 @@ class Question extends React.Component {
    setAnswerInput(e) {
       this.setState({ answerInput: e.target.value });
    }
+
    render() {
       return (
          <>
@@ -64,16 +42,19 @@ class Question extends React.Component {
                         <div className="lead mb-4">
                            <Link to="question">
                               {this.props.answerableQuestion.text}
-                              {/*<Link to="question">{question.text}</Link>*/}
                            </Link>
                         </div>
                         <p className="text-muted asked-on-answers-num float-left">
-                           Asked on {toDisplayDate(createdAtDate, "MMMM d, y")}.
+                           Asked on{" "}
+                           {toDisplayDate(
+                              this.props.answerableQuestion.createdAt,
+                              "MMMM d, y"
+                           )}
+                           .
                         </p>
                         <p className="text-muted asked-on-answers-num float-right">
                            {this.props.answerableQuestion.answers.length}{" "}
                            answers
-                           {/*{answers.length} answers*/}
                         </p>
 
                         <div className="clearfix mb-4"></div>
@@ -81,10 +62,14 @@ class Question extends React.Component {
                            className="answers"
                            style={{ textAlign: "justify" }}
                         >
-                           {answers.map((answer) => {
-                              // console.log(answer);
-                              return <Answer answer={answer} key={answer.id} />;
-                           })}
+                           {this.props.answerableQuestion.answers.map(
+                              (answer) => {
+                                 // console.log(answer);
+                                 return (
+                                    <Answer answer={answer} key={answer.id} />
+                                 );
+                              }
+                           )}
                         </div>
 
                         <div className=" mb-4"></div>
@@ -138,7 +123,6 @@ class Question extends React.Component {
 
 //mapStateToProps says take this global state and map these certain things to properties within this local state
 function mapStateToProps(state) {
-   //return whatever we want to pass from the global state into the properties
    return {
       answerableQuestion: state.answerableQuestion,
    };
