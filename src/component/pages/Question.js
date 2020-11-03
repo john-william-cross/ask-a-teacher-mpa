@@ -9,7 +9,6 @@ import classnames from "classnames";
 import Answer from "../ui/Answer";
 import { connect } from "react-redux";
 import isEmpty from "lodash/isEmpty";
-import appLogo from "../../icons/white-logo.svg";
 
 class Question extends React.Component {
    constructor(props) {
