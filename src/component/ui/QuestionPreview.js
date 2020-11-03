@@ -18,7 +18,13 @@ function QuestionPreview(props) {
          payload: { text: match, prevRoute: "/questions" },
       });
 
+      // get the question object with this id
+      // from the array of allQuestions, console log this object
+      // get the index of the question from allQuestions where
+      // the id is equal to the id of the question I clicked on.
 
+      // store the object inside the redux store /////use props.dispatch; won't need this.props.dispatch
+   }
 
    return (
       <>
