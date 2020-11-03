@@ -252,29 +252,37 @@ a:hover {
    }
 }
 .sign-out {
-   font-weight: 300;
+   font-weight: normal;
    @include media-breakpoint-only(xs) {
-      font-size: $font-size-base * 0.75;
+      font-size: 12px;
    }
    @include media-breakpoint-only(sm) {
+      margin-right: 20px;
+      font-size: 16px;
    }
    @include media-breakpoint-only(md) {
+      margin-right: 5px;
+      font-size: 16px;
    }
+
    @include media-breakpoint-only(lg) {
    }
    @include media-breakpoint-only(xl) {
+      margin-right: 36px;
    }
 }
 .contact {
-   font-weight: 300;
+   font-weight: normal;
    @include media-breakpoint-only(xs) {
-      font-size: $font-size-base * 0.75;
+      font-size: 12px;
    }
    @include media-breakpoint-only(sm) {
       margin-left: 12px;
+      font-size: 16px;
    }
    @include media-breakpoint-only(md) {
       margin-left: 12px;
+      font-size: 16px;
    }
    @include media-breakpoint-only(lg) {
       margin-left: 12px;
