@@ -24,7 +24,7 @@ class Header extends React.Component {
                      </div>
                      <div className="col-6">
                         <Link
-                           to="/LogIn"
+                           to="/"
                            className="sign-out float-right my-3 no-underline text-right"
                            onClick={() => {
                               this.logOutOutCurrentUser(); //running this function updates the redux store, which is our global state
