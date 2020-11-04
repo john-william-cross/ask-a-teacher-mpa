@@ -26,7 +26,7 @@ class Questions extends React.Component {
    componentDidMount() {
       axios
          .get(
-            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/master/src/mock-data/questions.json"
+            "https://raw.githubusercontent.com/john-william-cross/ask-a-teacher-mpa/91c2d6c7d7188433516473d1b85885a9b3611136/src/mock-data/questions.json"
          )
          .then((res) => {
             // handle success

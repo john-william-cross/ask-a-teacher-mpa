@@ -17,6 +17,8 @@ class Header extends React.Component {
             <div className="footer-solid fixed-bottom">
                <div className="container mb-3 mt-3 mt-sm-3 mt-md-3 mt-lg-2">
                   <div className="row">
+                     {" "}
+                     {/*FIX SUBMIT AND CANCEL MARGINS */}
                      <div className="col-6">
                         <Link
                            to="/LogIn"

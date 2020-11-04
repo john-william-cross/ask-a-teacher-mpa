@@ -109,7 +109,7 @@ class Question extends React.Component {
                               <Link
                                  to={this.props.answerableQuestion.prevRoute}
                                  className={classnames(
-                                    "mt-5 submit-answer-button logo-text-font btn btn-lg btn-outline-primary",
+                                    "mt-5 submit-answer-button logo-text-font btn btn-xm btn-outline-primary",
                                     { disabled: this.checkAnswerIsOver() }
                                  )}
                                  id="submit-answer"
@@ -123,7 +123,7 @@ class Question extends React.Component {
                               <Link
                                  to={this.props.answerableQuestion.prevRoute}
                                  className={classnames(
-                                    "text-muted cancel float-right mb-9 mt-n5 offset-3"
+                                    "text-muted cancel float-right mb-xs-9 offset-3"
                                  )}
                               >
                                  Cancel submission
