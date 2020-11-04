@@ -62,7 +62,7 @@ class SubmitQuestion extends React.Component {
       return (
          <>
             <Header />
-            <div className="container">
+            <div className="container mb-9">
                <div className="row mt-8 no-gutters">
                   <div className="pressed-submit mt-6 col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                      <h1 className="lead mb-3 mt-6">What's your question?</h1>

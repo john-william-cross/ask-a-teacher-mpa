@@ -241,16 +241,24 @@ a:hover {
    font-weight: 300;
    @include media-breakpoint-only(xs) {
       font-size: 12px;
+      margin-top: 60px;
+      margin-right: -60px;
    }
    @include media-breakpoint-only(sm) {
+      margin-top: 52px;
+      margin-right: -95px;
    }
    @include media-breakpoint-only(md) {
+      margin-top: 52px;
+      margin-right: -90px;
    }
    @include media-breakpoint-only(lg) {
-      margin-top: 30px;
+      margin-top: 52px;
+      margin-right: -110px;
    }
    @include media-breakpoint-only(xl) {
-      margin-top: 60px;
+      margin-top: 52px;
+      margin-right: -110px;
    }
 }
 .sign-out {

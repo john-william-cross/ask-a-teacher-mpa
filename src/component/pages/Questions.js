@@ -75,7 +75,7 @@ class Questions extends React.Component {
       return (
          <>
             <Header />
-            <div className="container">
+            <div className="container mb-9">
                <div className="row no-gutters">
                   <div className="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 mt-9">
                      <div className="col-12 mt-6">
