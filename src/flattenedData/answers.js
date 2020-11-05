@@ -43,4 +43,13 @@ const answers = [
       userHomeState: "Iowa",
       questionId: "30a95c2b-ed3c-46a4-b32f-7bcb5aef7723",
    },
+   {
+      id: "dbe66104-0335-42c9-8e23-e45eef4161e1",
+      text:
+         "Singing songs with rhymes in them, playing silly rhyming games, etc. will help!\n\n",
+      answeredAt: 1604544431124,
+      userId: "35f222eb-23f8-4598-bb7b-7c5faed30292",
+      userHomeState: "Nevada",
+      questionId: "30a95c2b-ed3c-46a4-b32f-7bcb5aef7143",
+   },
 ];
