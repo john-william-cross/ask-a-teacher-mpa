@@ -1,5 +1,3 @@
-const { map } = require("lodash");
-
 const answers = [
    {
       id: "b37a480c-2de0-435e-8bc2-091760df2885",
@@ -46,4 +44,3 @@ const answers = [
       questionId: "30a95c2b-ed3c-46a4-b32f-7bcb5aef7723",
    },
 ];
-//commit comment
